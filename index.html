@@ -2,87 +2,489 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#080808">
+  <meta name="description" content="Una sorpresa de cumpleaños hecha con amor para Rosyta.">
   <title>Feliz cumpleaños, Rosyta ❤️🦇</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --amarillo: #ffd700;
+      --dorado: #c5a329;
+      --fondo: #080808;
+      --tarjeta: rgba(24, 22, 13, 0.92);
+      --texto: #fff7d1;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at top, #292000, #080808 65%);
-      color: #fff8d6;
-      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, #3b3008 0%, transparent 45%),
+        var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
       text-align: center;
     }
-    main {
-      width: min(92%, 480px);
-      margin: auto;
-      padding: 35px 0 50px;
-    }
-    .bat {
-      font-size: 76px;
-      animation: flotar 2.5s ease-in-out infinite;
-      filter: drop-shadow(0 0 15px #ffd000);
-    }
-    h1 { color: #ffd000; font-size: 2.2rem; }
-    h2 { color: #ffe36a; }
-    p { line-height: 1.7; }
-    .card {
-      margin-top: 24px;
-      padding: 22px;
-      border: 1px solid #b99716;
-      border-radius: 20px;
-      background: #15130be8;
-      box-shadow: 0 0 22px #ffd00020;
-    }
+
     button {
-      margin-top: 15px;
-      padding: 13px 20px;
-      border: 0;
-      border-radius: 30px;
-      background: #ffd000;
-      color: #171300;
-      font-size: 1rem;
+      font: inherit;
+    }
+
+    .scene {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .contenido {
+      position: relative;
+      z-index: 2;
+      width: min(100% - 28px, 520px);
+      margin: auto;
+      padding: 34px 0 55px;
+    }
+
+    .luz {
+      position: fixed;
+      z-index: -1;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: #ffd700;
+      filter: blur(100px);
+      opacity: 0.10;
+      pointer-events: none;
+    }
+
+    .luz-uno {
+      top: 12%;
+      left: -120px;
+    }
+
+    .luz-dos {
+      right: -130px;
+      bottom: 8%;
+    }
+
+    .etiqueta {
+      color: var(--amarillo);
+      font-size: 11px;
       font-weight: bold;
+      letter-spacing: 4px;
+      line-height: 1.8;
+    }
+
+    .simbolo {
+      display: inline-block;
+      margin: 10px 0;
+      font-size: 82px;
+      line-height: 1.2;
+      filter: drop-shadow(0 0 18px #ffd7008c);
+      animation: volar 3s ease-in-out infinite;
+    }
+
+    h1 {
+      margin: 12px 0;
+      color: var(--amarillo);
+      font-size: clamp(32px, 9vw, 46px);
+      line-height: 1.12;
+      text-shadow: 0 0 24px #ffd70026;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--amarillo);
+      font-size: 24px;
+    }
+
+    p {
+      line-height: 1.75;
+    }
+
+    .subtitulo {
+      max-width: 390px;
+      margin: 18px auto;
+      color: #eee4b8;
+      font-size: 16px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin: 12px 5px;
+      padding: 14px 22px;
+      border: 1px solid var(--amarillo);
+      border-radius: 30px;
+      background: var(--amarillo);
+      color: #171300;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 22px #ffd70020;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .boton:active {
+      transform: scale(0.96);
+    }
+
+    .boton-secundario {
+      background: transparent;
+      color: var(--amarillo);
+    }
+
+    .tarjeta {
+      margin: 26px 0;
+      padding: 24px 18px;
+      border: 1px solid #a98b24;
+      border-radius: 22px;
+      background: var(--tarjeta);
+      box-shadow: 0 12px 38px #0008, 0 0 20px #ffd7000a;
+      backdrop-filter: blur(8px);
+    }
+
+    .decoracion {
+      color: var(--amarillo);
+      font-size: 27px;
+      letter-spacing: 5px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+      margin-top: 20px;
+    }
+
+    .foto {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      padding: 0;
+      aspect-ratio: 3 / 4;
+      border: 1px solid #8f751d;
+      border-radius: 15px;
+      background: #17150c;
       cursor: pointer;
     }
-    #carta { display: none; }
-    .heart { color: #ffd000; font-size: 25px; }
-    @keyframes flotar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+
+    .foto img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+
+    .foto:active img {
+      transform: scale(1.05);
+    }
+
+    .nota {
+      color: #c9bd8e;
+      font-size: 12px;
+    }
+
+    #carta {
+      display: none;
+      margin-top: 22px;
+      padding: 20px 16px;
+      border-radius: 16px;
+      background: #211c0c;
+      text-align: left;
+      animation: aparecer 0.7s ease both;
+    }
+
+    #carta.abierta {
+      display: block;
+    }
+
+    #carta p {
+      margin: 12px 0;
+    }
+
+    .firma {
+      color: var(--amarillo);
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .corazon {
+      position: fixed;
+      z-index: 1;
+      bottom: -40px;
+      color: var(--amarillo);
+      opacity: 0;
+      pointer-events: none;
+      animation: subir 7s linear forwards;
+    }
+
+    .final {
+      padding: 12px 0 24px;
+      color: #e7d99b;
+      font-size: 14px;
+    }
+
+    .pie {
+      color: #887b4c;
+      font-size: 11px;
+    }
+
+    @keyframes volar {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-12px) rotate(4deg); }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes subir {
+      0% { opacity: 0; transform: translateY(0) rotate(0); }
+      15% { opacity: 0.8; }
+      100% { opacity: 0; transform: translateY(-110vh) rotate(30deg); }
+    }
+
+    @media (min-width: 430px) {
+      .galeria {
+        gap: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
-<body>
-  <main>
-    <div class="bat">🦇</div>
-    <p>UNA SORPRESA PARA ALGUIEN MUY ESPECIAL</p>
-    <h1>¡Feliz cumpleaños, Rosyta! 🎂</h1>
-    <p>Para mi Rosyta Ojos Lindos, con todo el amor de tu Pastorcito. ❤️</p>
 
-    <section class="card">
-      <div class="heart">💛 🌼 💛</div>
-      <h2>Eres mi persona favorita</h2>
-      <p>Hoy es un día especial porque celebramos la vida de una personita que hace mi mundo más bonito: tú.</p>
-      <button onclick="mostrarCarta()">Abrir mi carta ❤️</button>
-      <div id="carta">
-        <p>Mi Rosyta Ojos Lindos:</p>
-        <p>Quiero que hoy recuerdes lo importante que eres para mí. Tu sonrisa, tus ojos y tu forma de ser hacen que mis días sean más especiales.</p>
-        <p>Deseo que este nuevo año de vida te regale muchísima felicidad, sueños cumplidos y razones para sonreír. Gracias por existir y por ocupar un lugar tan bonito en mi corazón.</p>
-        <p>Con todo mi cariño,</p>
-        <h2>Tu Pastorcito ❤️</h2>
-      </div>
-    </section>
-    <p style="margin-top:28px">🌙 Mi persona favorita, hoy y siempre. 🦇💛</p>
+<body>
+  <main class="scene">
+    <div class="luz luz-uno" aria-hidden="true"></div>
+    <div class="luz luz-dos" aria-hidden="true"></div>
+
+    <div class="contenido">
+      <header id="inicio">
+        <p class="etiqueta">UNA MISIÓN MUY ESPECIAL</p>
+        <div class="simbolo" aria-hidden="true">🦇</div>
+
+        <p class="etiqueta">PARA MI PERSONA FAVORITA</p>
+        <h1>¡Feliz cumpleaños,<br>Rosyta! 💛</h1>
+
+        <p class="subtitulo">
+          Para mi Rosyta Ojos Lindos, la persona que hace mis días más bonitos.
+          Con todo el amor de tu Pastorcito. ❤️
+        </p>
+
+        <button class="boton" type="button" id="sorpresaBtn">
+          Abrir mi sorpresa ✨
+        </button>
+      </header>
+
+      <section class="tarjeta" id="mensaje">
+        <div class="decoracion">🌼 💛 🌼</div>
+        <h2>Eres mi persona favorita</h2>
+        <p>
+          feliz cumpleaños mi niña hermosa espero que te la pases 
+          bien hoy en este dia tan especial y que te la pases muy bien
+          no sera lo que querias pero espero te guste este detalle.
+        </p>
+      </section>
+
+      <section class="tarjeta" id="recuerdos">
+        <h2>Nuestros recuerdos 📸</h2>
+        <p>Un pequeño rincón dedicado a ti y a esa sonrisa tan bonita.</p>
+
+        <div class="galeria">
+          <button class="foto" type="button" aria-label="Ver foto 1">
+            <img src="IMG-20260414-WA0000.jpg" alt="Rosyta, recuerdo 1" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 2">
+            <img src="IMG-20260414-WA0001.jpg" alt="Rosyta, recuerdo 2" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 3">
+            <img src="IMG-20260414-WA0002.jpg" alt="Rosyta, recuerdo 3" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 4">
+            <img src="IMG-20260414-WA0003.jpg" alt="Rosyta, recuerdo 4" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 5">
+            <img src="IMG-20260414-WA0004.jpg" alt="Rosyta, recuerdo 5" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 6">
+            <img src="IMG-20260427-WA0004.jpg" alt="Rosyta, recuerdo 6" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 7">
+            <img src="IMG-20260909-WA0107.jpg" alt="Rosyta, recuerdo 7" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 8">
+            <img src="IMG-20260918-WA0203.jpg" alt="Rosyta, recuerdo 8" loading="lazy">
+          </button>
+
+          <button class="foto" type="button" aria-label="Ver foto 9">
+            <img src="IMG-20260921-WA0057.jpg" alt="Rosyta, recuerdo 9" loading="lazy">
+          </button>
+        </div>
+
+        <p class="nota">Toca una foto para verla más grande. 💛</p>
+      </section>
+
+      <section class="tarjeta" id="cartaSeccion">
+        <div class="decoracion">💌</div>
+        <h2>Una carta para ti</h2>
+        <p>Hay unas palabras que quiero que leas con el corazón.</p>
+
+        <button class="boton" type="button" id="cartaBtn">
+          Abrir mi carta ❤️
+        </button>
+
+        <article id="carta">
+          <p>Feliz cumpleaños Mi Rosyta De Ojos Lindos:</p>
+
+          <p>
+            Hoy quiero recordarte lo muchísimo que significas para mí y lo
+            importante que eres para mi sabes que siempre voy estar aquí para 
+            ti en todo momento sea malo o bueno siempre puedes contar conmigo a
+            lo mejor no sera lo que quisiera darte pero sabes que lo hago con 
+            mucho cariño y con mucho amor porque eres muy importante para mi 
+            y espero que recuerdes siempre que eres la niña de mis ojos espero 
+            que podamos compartir mas momentos asi juntos como lo es hoy 
+            sabes que siempre te voy amar mi rosyta fresita.
+          </p>
+
+          <p>
+            Deseo que este nuevo año de vida te regale alegría, salud,
+            sueños cumplidos y muchísimos motivos para sonreír.
+            Mereces cosas bonitas, hoy y siempre.
+          </p>
+
+          <p>
+            Gracias por existir y por tener un lugar tan especial
+            en mi corazón. Ojalá esta pequeña sorpresa te saque
+            una sonrisa y te recuerde cuánto te amo y lo muy importante 
+            y especial que eres para mi.
+          </p>
+
+          <p>Con todo mi amor,</p>
+          <p class="firma">Tu Pastorcito ❤️🦇</p>
+        </article>
+      </section>
+
+      <footer class="final">
+        <p>Si el mundo fuera Gotham, tú serías mi luz. 🦇💛</p>
+        <p class="pie">Hecho especialmente para Rosyta Ojos Lindos.</p>
+      </footer>
+    </div>
   </main>
+
+  <div id="visor" hidden
+       style="position:fixed;inset:0;z-index:10;background:#000e;align-items:center;justify-content:center;padding:18px"
+       role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button type="button" id="cerrarVisor"
+            aria-label="Cerrar foto"
+            style="position:absolute;top:18px;right:18px;background:#ffd700;border:0;border-radius:50%;width:44px;height:44px;font-size:24px">
+      ×
+    </button>
+    <img id="fotoGrande" src="" alt="Foto ampliada"
+         style="max-width:100%;max-height:85vh;object-fit:contain;border-radius:12px">
+  </div>
+
   <script>
-    function mostrarCarta() {
-      const carta = document.getElementById('carta');
-      carta.style.display = 'block';
-      carta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const sorpresaBtn = document.getElementById("sorpresaBtn");
+    const cartaBtn = document.getElementById("cartaBtn");
+    const carta = document.getElementById("carta");
+    const visor = document.getElementById("visor");
+    const fotoGrande = document.getElementById("fotoGrande");
+    const cerrarVisor = document.getElementById("cerrarVisor");
+
+    sorpresaBtn.addEventListener("click", () => {
+      document.getElementById("mensaje").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+      lanzarCorazones();
+    });
+
+    cartaBtn.addEventListener("click", () => {
+      const abierta = carta.classList.toggle("abierta");
+      cartaBtn.textContent = abierta ? "Cerrar mi carta 💛" : "Abrir mi carta ❤️";
+
+      if (abierta) {
+        carta.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        lanzarCorazones();
+      }
+    });
+
+    document.querySelectorAll(".foto img").forEach((foto) => {
+      foto.addEventListener("error", () => {
+        foto.alt = "No se encontró el archivo: " + foto.getAttribute("src");
+      });
+    });
+
+    document.querySelectorAll(".foto").forEach((boton) => {
+      boton.addEventListener("click", () => {
+        const imagen = boton.querySelector("img");
+        if (!imagen.complete || imagen.naturalWidth === 0) return;
+
+        fotoGrande.src = imagen.src;
+        fotoGrande.alt = imagen.alt;
+        visor.hidden = false;
+        visor.style.display = "flex";
+      });
+    });
+
+    function cerrarFoto() {
+      visor.hidden = true;
+      visor.style.display = "none";
+      fotoGrande.src = "";
+    }
+
+    cerrarVisor.addEventListener("click", cerrarFoto);
+
+    visor.addEventListener("click", (evento) => {
+      if (evento.target === visor) cerrarFoto();
+    });
+
+    document.addEventListener("keydown", (evento) => {
+      if (evento.key === "Escape") cerrarFoto();
+    });
+
+    function lanzarCorazones() {
+      for (let i = 0; i < 12; i++) {
+        const corazon = document.createElement("span");
+        corazon.className = "corazon";
+        corazon.textContent = Math.random() > 0.5 ? "💛" : "✨";
+        corazon.style.left = Math.random() * 95 + "vw";
+        corazon.style.animationDelay = Math.random() * 1.5 + "s";
+        corazon.style.fontSize = 16 + Math.random() * 18 + "px";
+        document.body.appendChild(corazon);
+
+        corazon.addEventListener("animationend", () => corazon.remove());
+      }
     }
   </script>
 </body>
-          </html>
+  </html>
