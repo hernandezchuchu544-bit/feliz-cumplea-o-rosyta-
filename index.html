@@ -458,26 +458,68 @@
     🦇 RAMO DE GOTHAM 🦇
   </div>
 
-  <div class="bat-faces">
-    <span>🦇</span>
-    <span>🦇</span>
-    <span>🦇</span>
-    <span>🦇</span>
-    <span>🦇</span>
+  <div class="bat-mask-bouquet">
+    <div class="mask-stem">
+      <div class="bat-mask-face">
+        <div class="bat-ears"></div>
+        <div class="bat-eyes">
+          <i></i><i></i>
+        </div>
+        <div class="bat-mouth"></div>
+      </div>
+    </div>
+
+    <div class="mask-stem">
+      <div class="bat-mask-face">
+        <div class="bat-ears"></div>
+        <div class="bat-eyes">
+          <i></i><i></i>
+        </div>
+        <div class="bat-mouth"></div>
+      </div>
+    </div>
+
+    <div class="mask-stem mask-center">
+      <div class="bat-mask-face">
+        <div class="bat-ears"></div>
+        <div class="bat-eyes">
+          <i></i><i></i>
+        </div>
+        <div class="bat-mouth"></div>
+      </div>
+    </div>
+
+    <div class="mask-stem">
+      <div class="bat-mask-face">
+        <div class="bat-ears"></div>
+        <div class="bat-eyes">
+          <i></i><i></i>
+        </div>
+        <div class="bat-mouth"></div>
+      </div>
+    </div>
+
+    <div class="mask-stem">
+      <div class="bat-mask-face">
+        <div class="bat-ears"></div>
+        <div class="bat-eyes">
+          <i></i><i></i>
+        </div>
+        <div class="bat-mouth"></div>
+      </div>
+    </div>
   </div>
 
-  <div class="bat-mask">🦇</div>
-
-  <div class="bat-bouquet-bats">
-    ✦ 🦇 ✦ 🦇 ✦
+  <div class="bat-bouquet-wrap">
+    <div class="bat-bouquet-ribbon"></div>
   </div>
 
-  <div class="bat-wrapping">
-    <span>🖤</span>
-    <span>💛</span>
-    <span>🖤</span>
-  </div>
+  <div class="bat-bouquet-bats">✦ 🦇 ✦ 🦇 ✦</div>
 
+  <p>Un ramo especial para mi heroína favorita</p>
+  <span class="bat-dedication">Para Rosyta Ojos Lindos 💛</span>
+</div>
+          
   <p>Un ramo digno de mi heroína favorita</p>
   <span class="bat-dedication">
     Para Rosyta Ojos Lindos 💛
@@ -660,73 +702,177 @@
     }
  
 
+
 .bat-bouquet {
+  position: relative;
   margin: 28px auto 12px;
-  padding: 22px 12px;
-  text-align: center;
+  padding: 22px 10px 20px;
+  max-width: 360px;
   overflow: hidden;
-  background: radial-gradient(circle, #30240d, #09090d 75%);
-  border: 2px solid #c49a42;
+  text-align: center;
+  background: radial-gradient(circle at top, #302713, #09090d 75%);
+  border: 1px solid #c49a42;
   border-radius: 18px;
-  box-shadow: 0 0 25px #e9b94330;
+  box-shadow: 0 0 24px #d9aa3525;
 }
 
 .bat-bouquet-title {
   color: #f5c451;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 3px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
-.bat-faces {
+.bat-mask-bouquet {
+  position: relative;
   display: flex;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px;
+  height: 155px;
+  padding-top: 16px;
 }
 
-.bat-faces span {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 55px;
-  background: linear-gradient(145deg, #28282e, #050505);
-  border: 1px solid #d4a83f;
-  border-radius: 45% 45% 35% 35%;
-  font-size: 29px;
-  box-shadow: 0 0 12px #f5c45120;
+.mask-stem {
+  position: relative;
+  width: 54px;
+  height: 130px;
+  flex-shrink: 0;
 }
 
-.bat-mask {
-  margin: 10px auto;
-  font-size: 75px;
-  filter: drop-shadow(0 0 12px #f5c45170);
+.mask-stem:nth-child(1),
+.mask-stem:nth-child(5) {
+  margin-top: 25px;
+}
+
+.mask-stem:nth-child(2),
+.mask-stem:nth-child(4) {
+  margin-top: 10px;
+}
+
+.mask-center {
+  z-index: 2;
+  margin-top: -2px;
+}
+
+.bat-mask-face {
+  position: relative;
+  width: 54px;
+  height: 68px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #393a40, #101014 65%, #030304);
+  border: 1px solid #b99543;
+  border-radius: 42% 42% 45% 45%;
+  clip-path: polygon(
+    0 0, 25% 12%, 37% 4%, 63% 4%, 75% 12%,
+    100% 0, 91% 68%, 72% 91%, 50% 100%,
+    28% 91%, 9% 68%
+  );
+  filter: drop-shadow(0 0 5px #e8bb4b55);
+}
+
+.bat-ears {
+  position: absolute;
+  top: -8px;
+  left: 7px;
+  width: 40px;
+  height: 24px;
+  background: #17171c;
+  clip-path: polygon(0 100%, 12% 0, 38% 57%, 62% 57%, 88% 0, 100% 100%);
+}
+
+.bat-eyes {
+  position: absolute;
+  top: 31px;
+  left: 8px;
+  display: flex;
+  justify-content: space-between;
+  width: 36px;
+}
+
+.bat-eyes i {
+  display: block;
+  width: 15px;
+  height: 7px;
+  background: #f5d77a;
+  clip-path: polygon(0 0, 100% 30%, 65% 100%, 20% 80%);
+  box-shadow: 0 0 7px #ffdc69;
+}
+
+.bat-mouth {
+  position: absolute;
+  bottom: 8px;
+  left: 19px;
+  width: 16px;
+  height: 10px;
+  background: #08080a;
+  border-bottom: 1px solid #b99543;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
+}
+
+.mask-stem::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 61px;
+  left: 26px;
+  width: 2px;
+  height: 75px;
+  background: linear-gradient(#c49a42, #34301f);
+}
+
+.bat-bouquet-wrap {
+  position: relative;
+  width: 190px;
+  height: 100px;
+  margin: -8px auto 10px;
+  background: linear-gradient(
+    110deg,
+    #050505 0%,
+    #24221d 28%,
+    #080808 50%,
+    #302713 72%,
+    #050505 100%
+  );
+  border: 1px solid #a88334;
+  clip-path: polygon(0 0, 100% 0, 76% 100%, 50% 79%, 24% 100%);
+}
+
+.bat-bouquet-wrap::before {
+  content: "🦇";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  color: #f5c451;
+  font-size: 28px;
+}
+
+.bat-bouquet-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 53px;
+  width: 43px;
+  height: 20px;
+  transform: translateX(-50%);
+  border: 2px solid #e4bb55;
+  border-radius: 5px;
+  background: #14110b;
 }
 
 .bat-bouquet-bats {
   color: #f5c451;
-  font-size: 22px;
-  letter-spacing: 5px;
-}
-
-.bat-wrapping {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin: 12px auto;
-  padding: 12px;
-  max-width: 180px;
-  background: linear-gradient(120deg, #050505, #292018, #050505);
-  border: 1px solid #c49a42;
-  clip-path: polygon(10% 0, 90% 0, 100% 100%, 50% 75%, 0 100%);
-  font-size: 24px;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin: 10px 0;
 }
 
 .bat-bouquet p {
   color: #ffe7a0;
   font-family: Georgia, serif;
   font-size: 16px;
+  margin: 12px 0 8px;
 }
 
 .bat-bouquet .bat-dedication {
@@ -734,8 +880,9 @@
   color: #f5c451;
   font-size: 13px;
   font-weight: bold;
-}
+  }
     
+
     
   </style>
 
