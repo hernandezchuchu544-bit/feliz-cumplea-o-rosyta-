@@ -134,84 +134,549 @@
     }
     .footer { position: relative; z-index: 1; padding: 16px 10px 24px; color: #93815a; text-align: center; font-size: 10px; letter-spacing: 2px; }
     .footer span { color: #f5c451; }
-    .bat-bouquet {
-      position: relative; margin: 28px auto 12px; padding: 22px 10px 20px; max-width: 360px;
-      overflow: hidden; text-align: center; background: radial-gradient(circle at top, #302713, #09090d 75%);
-      border: 1px solid #c49a42; border-radius: 18px; box-shadow: 0 0 24px #d9aa3525;
+
+/* ===== RAMO BATMAN: NUEVO DISEÑO ===== */
+
+.bouquet-card {
+  border-color: #d9ae4d75;
+}
+
+.bat-bouquet {
+  --bat-gold: #f5c451;
+  --bat-gold-light: #ffe7a0;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 350px;
+  margin: 25px auto 18px;
+  padding: 23px 8px 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+
+  border: 1px solid #c49a42;
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      #49371a 0%,
+      transparent 52%
+    ),
+    linear-gradient(
+      160deg,
+      #171720 0%,
+      #08090e 65%,
+      #17120b 100%
+    );
+
+  box-shadow:
+    0 15px 35px #0009,
+    inset 0 0 30px #f5c45108,
+    0 0 22px #d9aa3520;
+}
+
+.bat-bouquet::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #ffe7a015,
+      transparent 55%
+    );
+}
+
+.bouquet-moon {
+  position: absolute;
+  z-index: -1;
+  top: 65px;
+  left: 50%;
+  width: 145px;
+  height: 145px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: #f5c451;
+  opacity: .12;
+  filter: blur(38px);
+}
+
+.bouquet-heading {
+  position: relative;
+  z-index: 8;
+  color: var(--bat-gold-light);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1.9;
+}
+
+.bouquet-heading small {
+  display: block;
+  color: #c9a44e;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.bouquet-sparkles {
+  position: absolute;
+  inset: 65px 0 auto;
+  height: 180px;
+  pointer-events: none;
+  color: #ffe7a0;
+}
+
+.bouquet-sparkles i {
+  position: absolute;
+  font-size: 15px;
+  font-style: normal;
+  animation: sparkleFloat 2.5s ease-in-out infinite alternate;
+}
+
+.bouquet-sparkles i:nth-child(1) {
+  top: 30px;
+  left: 12%;
+}
+
+.bouquet-sparkles i:nth-child(2) {
+  top: 75px;
+  left: 6%;
+  animation-delay: .5s;
+}
+
+.bouquet-sparkles i:nth-child(3) {
+  top: 15px;
+  right: 12%;
+  animation-delay: .8s;
+}
+
+.bouquet-sparkles i:nth-child(4) {
+  top: 100px;
+  right: 8%;
+  animation-delay: .3s;
+}
+
+.bouquet-sparkles i:nth-child(5) {
+  top: 130px;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.bouquet-sparkles i:nth-child(6) {
+  top: 120px;
+  right: 22%;
+  animation-delay: 1.3s;
+}
+
+/* Distribución de las siete flores */
+
+.bat-flower-heads {
+  position: relative;
+  z-index: 3;
+  width: 290px;
+  max-width: 100%;
+  height: 245px;
+  margin: 12px auto 0;
+}
+
+.bat-flower {
+  position: absolute;
+  width: 66px;
+  height: 180px;
+  transform-origin: top center;
+  filter: drop-shadow(0 5px 5px #000b);
+}
+
+.bat-cowl {
+  position: relative;
+  width: 64px;
+  height: 78px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 38% 25%,
+      #5c5d65 0%,
+      transparent 36%
+    ),
+    linear-gradient(
+      110deg,
+      #45464f,
+      #202128 55%,
+      #050507
+    );
+
+  clip-path: polygon(
+    4% 22%,
+    24% 15%,
+    31% 0%,
+    43% 21%,
+    57% 21%,
+    69% 0%,
+    76% 15%,
+    96% 22%,
+    86% 65%,
+    70% 84%,
+    50% 100%,
+    30% 84%,
+    14% 65%
+  );
+
+  filter:
+    drop-shadow(0 0 2px #a6a6ac55);
+}
+
+.bat-cowl::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 12px;
+  width: 40px;
+  height: 18px;
+
+  background: linear-gradient(
+    180deg,
+    #555660,
+    #17181d
+  );
+
+  clip-path: polygon(
+    0 0,
+    40% 24%,
+    50% 38%,
+    60% 24%,
+    100% 0,
+    82% 72%,
+    50% 100%,
+    18% 72%
+  );
+}
+
+.bat-cowl i,
+.bat-cowl b {
+  position: absolute;
+  z-index: 3;
+  top: 39px;
+  display: block;
+  width: 21px;
+  height: 9px;
+
+  background: #fffdf1;
+  box-shadow: 0 0 8px #fff4bd99;
+}
+
+.bat-cowl i {
+  left: 7px;
+
+  clip-path: polygon(
+    0 0,
+    100% 25%,
+    68% 100%,
+    20% 75%
+  );
+}
+
+.bat-cowl b {
+  right: 7px;
+
+  clip-path: polygon(
+    0 25%,
+    100% 0,
+    80% 75%,
+    32% 100%
+  );
+}
+
+.bat-cowl em {
+  position: absolute;
+  z-index: 2;
+  left: 17px;
+  bottom: 6px;
+  width: 30px;
+  height: 19px;
+
+  background: linear-gradient(
+    145deg,
+    #292a30,
+    #080809
+  );
+
+  border-top: 1px solid #55545a;
+
+  clip-path: polygon(
+    0 0,
+    50% 24%,
+    100% 0,
+    78% 75%,
+    50% 100%,
+    22% 75%
+  );
+}
+
+/* Tallos dorados */
+
+.bat-flower::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 65px;
+  left: 32px;
+  width: 3px;
+  height: 125px;
+  border-radius: 3px;
+
+  background: linear-gradient(
+    180deg,
+    #e4c86f,
+    #777044 55%,
+    #282719
+  );
+}
+
+/* Posiciones de cada flor */
+
+.bat-flower.f1 {
+  left: 1px;
+  top: 84px;
+  transform: rotate(-17deg) scale(.82);
+}
+
+.bat-flower.f2 {
+  left: 32px;
+  top: 37px;
+  transform: rotate(-10deg) scale(.92);
+}
+
+.bat-flower.f3 {
+  left: 70px;
+  top: 8px;
+  transform: rotate(-4deg);
+}
+
+.bat-flower.f4 {
+  left: calc(50% - 33px);
+  top: 29px;
+  z-index: 4;
+  transform: scale(1.06);
+}
+
+.bat-flower.f5 {
+  right: 32px;
+  top: 37px;
+  transform: rotate(10deg) scale(.92);
+}
+
+.bat-flower.f6 {
+  right: 1px;
+  top: 84px;
+  transform: rotate(17deg) scale(.82);
+}
+
+.bat-flower.f7 {
+  left: calc(50% - 33px);
+  top: 104px;
+  z-index: 5;
+  transform: scale(.78);
+}
+
+/* Envoltorio negro y dorado */
+
+.bat-bouquet-paper {
+  position: relative;
+  z-index: 6;
+  width: 260px;
+  max-width: 94%;
+  height: 135px;
+  margin: -65px auto 0;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    90deg,
+    #050506 0%,
+    #29251a 20%,
+    #111116 40%,
+    #30291b 60%,
+    #111116 80%,
+    #050506 100%
+  );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    88% 48%,
+    67% 83%,
+    55% 100%,
+    45% 100%,
+    33% 83%,
+    12% 48%
+  );
+
+  filter: drop-shadow(0 8px 8px #0009);
+}
+
+.bat-paper-fold {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    75deg,
+    transparent 17%,
+    #d9b45c45 19%,
+    transparent 29%,
+    transparent 43%,
+    #0008 45%,
+    transparent 52%,
+    transparent 70%,
+    #d9b45c30 72%,
+    transparent 82%
+  );
+}
+
+.bat-gold-ribbon {
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 32px;
+
+  transform: translateX(-50%);
+  border: 1px solid #f1d17b;
+  border-radius: 6px;
+
+  background: linear-gradient(
+    145deg,
+    #272012,
+    #08090d
+  );
+
+  box-shadow: 0 0 10px #0008;
+}
+
+.bat-gold-ribbon span {
+  font-size: 21px;
+}
+
+/* Dedicatoria */
+
+.bouquet-dedication {
+  position: relative;
+  z-index: 7;
+  margin: 14px 5px 0;
+}
+
+.bouquet-dedication p {
+  margin: 0 0 9px;
+  color: #f5e4b7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.bouquet-dedication strong {
+  display: block;
+  color: #f5c451;
+  font-size: 13px;
+}
+
+.bouquet-dedication small {
+  display: block;
+  margin-top: 12px;
+  color: #bba36b;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* Animaciones al entrar en la etapa 6 */
+
+.bouquet-reveal .bat-flower {
+  animation: flowerRise .85s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.bouquet-reveal .bat-flower.f1 { animation-delay: .05s; }
+.bouquet-reveal .bat-flower.f2 { animation-delay: .15s; }
+.bouquet-reveal .bat-flower.f3 { animation-delay: .25s; }
+.bouquet-reveal .bat-flower.f4 { animation-delay: .35s; }
+.bouquet-reveal .bat-flower.f5 { animation-delay: .45s; }
+.bouquet-reveal .bat-flower.f6 { animation-delay: .55s; }
+.bouquet-reveal .bat-flower.f7 { animation-delay: .65s; }
+
+.bouquet-reveal .bat-bouquet-paper {
+  animation: paperRise .9s .75s both;
+}
+
+.bouquet-reveal .bat-gold-ribbon {
+  animation: ribbonGlow 2s 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flowerRise {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes paperRise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes ribbonGlow {
+  from {
+    box-shadow: 0 0 6px #d6ad4b55;
+  }
+  to {
+    box-shadow: 0 0 18px #ffe39a;
+  }
+}
+
+@keyframes sparkleFloat {
+  from {
+    opacity: .35;
+    transform: translateY(3px) scale(.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.2);
+  }
+}
+
+/* Adaptación para celulares pequeños */
+
+@media (max-width: 360px) {
+  .bat-bouquet-v2 {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .bat-bouquet-v2 .bat-flower-heads {
+    transform: scale(.9);
+    transform-origin: top center;
+    margin-bottom: -24px;
+  }
+
+  .bouquet-heading {
+    letter-spacing: 2px;
+  }
     }
-    .bat-bouquet-v2 {
-      --bat-gold: #e4bd5b; width: 100%; max-width: 350px; margin: 24px auto 15px; padding: 22px 6px;
-      box-sizing: border-box; border-color: #9e813f;
-      background: radial-gradient(ellipse at 50% 25%, #292719, transparent 65%), linear-gradient(160deg, #111116, #050507);
-      box-shadow: 0 14px 35px #0009, 0 0 20px #d9b45c18;
-    }
-    .bat-bouquet-title { color: #f5c451; font-size: 12px; font-weight: bold; letter-spacing: 3px; margin-bottom: 24px; }
-    .bat-bouquet-v2 .bat-bouquet-title { position: relative; z-index: 8; margin-bottom: 0; color: #ffe3a0; line-height: 1.9; }
-    .bat-bouquet-v2 .bat-bouquet-title span { display: block; color: #c9a44e; font-size: 9px; letter-spacing: 4px; }
-    .bat-flower-heads { position: relative; width: 290px; max-width: 100%; height: 245px; margin: 10px auto 0; }
-    .bat-flower { position: absolute; width: 66px; height: 180px; filter: drop-shadow(0 3px 3px #000); transform-origin: top center; }
-    .bat-cowl {
-      position: relative; width: 64px; height: 78px; overflow: hidden;
-      background: radial-gradient(ellipse at 38% 27%, #484950 0%, transparent 35%), linear-gradient(110deg, #34353b, #15161b 55%, #030304);
-      clip-path: polygon(4% 22%, 24% 15%, 31% 0%, 43% 21%, 57% 21%, 69% 0%, 76% 15%, 96% 22%, 86% 65%, 70% 84%, 50% 100%, 30% 84%, 14% 65%);
-    }
-    .bat-cowl::before {
-      content: ""; position: absolute; top: 22px; left: 12px; width: 40px; height: 18px;
-      background: linear-gradient(180deg, #414249, #17181c);
-      clip-path: polygon(0 0, 40% 24%, 50% 38%, 60% 24%, 100% 0, 82% 72%, 50% 100%, 18% 72%);
-    }
-    .bat-cowl i, .bat-cowl b {
-      position: absolute; z-index: 3; top: 39px; display: block; width: 21px; height: 9px;
-      background: #fffdf1; box-shadow: 0 0 5px #fff4bd80;
-    }
-    .bat-cowl i { left: 7px; clip-path: polygon(0 0, 100% 25%, 68% 100%, 20% 75%); }
-    .bat-cowl b { right: 7px; clip-path: polygon(0 25%, 100% 0, 80% 75%, 32% 100%); }
-    .bat-cowl em {
-      position: absolute; z-index: 2; left: 17px; bottom: 6px; width: 30px; height: 19px;
-      background: linear-gradient(145deg, #292a30, #080809); border-top: 1px solid #55545a;
-      clip-path: polygon(0 0, 50% 24%, 100% 0, 78% 75%, 50% 100%, 22% 75%);
-    }
-    .bat-flower::after {
-      content: ""; position: absolute; z-index: -1; top: 65px; left: 32px; width: 3px; height: 125px;
-      border-radius: 3px; background: linear-gradient(180deg, #b49a52, #686039 55%, #282719);
-    }
-    .bat-flower.f1 { left: 1px; top: 84px; transform: rotate(-17deg) scale(.82); }
-    .bat-flower.f2 { left: 32px; top: 37px; transform: rotate(-10deg) scale(.92); }
-    .bat-flower.f3 { left: 70px; top: 8px; transform: rotate(-4deg); }
-    .bat-flower.f4 { left: calc(50% - 33px); top: 29px; z-index: 4; transform: scale(1.06); }
-    .bat-flower.f5 { right: 32px; top: 37px; transform: rotate(10deg) scale(.92); }
-    .bat-flower.f6 { right: 1px; top: 84px; transform: rotate(17deg) scale(.82); }
-    .bat-flower.f7 { left: calc(50% - 33px); top: 104px; z-index: 5; transform: scale(.78); }
-    .bat-bouquet-paper {
-      position: relative; z-index: 6; width: 260px; max-width: 94%; height: 135px; margin: -65px auto 0;
-      box-sizing: border-box;
-      background: linear-gradient(90deg, #08080a 0%, #29251a 20%, #111116 40%, #30291b 60%, #111116 80%, #050506 100%);
-      clip-path: polygon(0 0, 100% 0, 88% 48%, 67% 83%, 55% 100%, 45% 100%, 33% 83%, 12% 48%);
-    }
-    .bat-paper-fold {
-      position: absolute; inset: 0;
-      background: linear-gradient(75deg, transparent 17%, #d9b45c45 19%, transparent 29%, transparent 43%, #0008 45%, transparent 52%, transparent 70%, #d9b45c30 72%, transparent 82%);
-    }
-    .bat-gold-ribbon {
-      position: absolute; top: 76px; left: 50%; display: grid; place-items: center; width: 44px; height: 30px;
-      transform: translateX(-50%); border: 1px solid #f1d17b; border-radius: 5px;
-      background: #17140d; box-shadow: 0 0 8px #0008; font-size: 21px;
-    }
-    .bat-bouquet-v2 .bat-bouquet-message {
-      position: relative; z-index: 7; margin: 14px 6px 8px; color: #f5e4b7;
-      font-family: Georgia, serif; font-size: 16px; line-height: 1.6;
-    }
-    .bat-bouquet-v2 .bat-bouquet-name { position: relative; z-index: 7; display: block; color: #f5c451; font-size: 13px; font-weight: bold; }
-    .bouquet-reveal .bat-flower { animation: flowerRise .85s cubic-bezier(.2,.8,.2,1) both; }
-    .bouquet-reveal .bat-flower.f1 { animation-delay: .05s; }
-    .bouquet-reveal .bat-flower.f2 { animation-delay: .15s; }
-    .bouquet-reveal .bat-flower.f3 { animation-delay: .25s; }
-    .bouquet-reveal .bat-flower.f4 { animation-delay: .35s; }
-    .bouquet-reveal .bat-flower.f5 { animation-delay: .45s; }
-    .bouquet-reveal .bat-flower.f6 { animation-delay: .55s; }
-    .bouquet-reveal .bat-flower.f7 { animation-delay: .65s; }
-    .bouquet-reveal .bat-bouquet-paper { animation: paperRise .9s .75s both; }
-    .bouquet-reveal .bat-gold-ribbon { animation: ribbonGlow 2s 1.5s ease-in-out infinite alternate; }
+    
     @keyframes enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes batPulse { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.08); filter: brightness(1.4); } }
     @keyframes starGlow { from { opacity: .25; } to { opacity: .65; } }
