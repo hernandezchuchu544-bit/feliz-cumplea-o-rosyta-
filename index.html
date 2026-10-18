@@ -490,20 +490,40 @@
   transform: rotate(5deg) scale(.84);
 }
 
-/* PAPEL ENVOLVIENDO LOS TALLOS */
+
+/* ===== PAPEL ENVOLVIENDO TODO EL RAMO ===== */
 .bat-bouquet .bat-bouquet-paper {
   position: relative;
   z-index: 11;
-  margin-top: -38px;
+  width: 100%;
+  margin-top: -5px;
+  min-height: 190px;
+  pointer-events: none;
+}
+
+.bat-bouquet .bat-paper-fold {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 260px;
+  max-width: 95%;
+}
+
+.bat-bouquet .bat-gold-ribbon {
+  position: absolute;
+  z-index: 12;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 55px;
 }
 
 @media (max-width: 360px) {
-  .bat-bouquet .bat-flower-heads {
-    transform: scale(.88);
-    transform-origin: top center;
-    margin-bottom: -28px;
+  .bat-bouquet .bat-bouquet-paper {
+    margin-top: 0;
   }
 }
+    
     
     
 
