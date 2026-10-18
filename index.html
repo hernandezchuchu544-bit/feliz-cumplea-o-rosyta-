@@ -2,632 +2,541 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#080808">
-  <meta name="description" content="Una sorpresa de cumpleaños para Rosyta, hecha con amor.">
-  <title>Para Rosyta Ojos Lindos ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Una sorpresa de cumpleaños para Rosyta, hecha con amor.">
+<title>Para Rosyta Ojos Lindos ❤️</title>
 
-  <style>
-    :root {
-      --gold: #ffd447;
-      --gold-soft: #ffeaa0;
-      --black: #080808;
-      --card: #15130d;
-      --text: #fff8df;
-    }
+<style>
+:root {
+  color-scheme: dark;
+  --gold: #ffd447;
+  --gold-soft: #ffeaa0;
+  --text: #fff8df;
+  --muted: #d8cda7;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background: #080808;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background:
-        radial-gradient(ellipse at top, #40320b 0%, #171306 35%, #080808 75%);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, #40320b 0%, transparent 45%),
+    linear-gradient(160deg, #171306, #080808 65%);
+}
 
-    button {
-      font: inherit;
-      -webkit-tap-highlight-color: transparent;
-    }
+.app {
+  width: min(100% - 28px, 540px);
+  min-height: 100vh;
+  margin: auto;
+  padding: 30px 0 45px;
+}
 
-    .app {
-      width: min(100% - 28px, 520px);
-      margin: auto;
-      padding: 30px 0 45px;
-      min-height: 100vh;
-      position: relative;
-    }
+.stage {
+  display: none;
+  animation: appear .65s ease both;
+}
 
-    .stage {
-      display: none;
-      animation: appear .8s ease both;
-    }
+.stage.active { display: block; }
 
-    .stage.active {
-      display: block;
-    }
+.bat {
+  font-size: 85px;
+  line-height: 1.3;
+  margin: 14px 0;
+  filter: drop-shadow(0 0 20px #ffd44770);
+  animation: float 3s ease-in-out infinite;
+}
 
-    .bat {
-      font-size: 85px;
-      line-height: 1.3;
-      margin: 10px 0;
-      filter: drop-shadow(0 0 22px #ffd4479c);
-      animation: float 3s ease-in-out infinite;
-    }
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-weight: bold;
+  line-height: 1.8;
+}
 
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 4px;
-      color: var(--gold);
-      font-weight: bold;
-      line-height: 1.8;
-    }
+h1 {
+  color: var(--gold);
+  font-size: clamp(32px, 9vw, 45px);
+  line-height: 1.15;
+  margin: 18px 0;
+  text-shadow: 0 0 25px #ffd44724;
+}
 
-    h1 {
-      color: var(--gold);
-      font-size: clamp(32px, 9vw, 45px);
-      line-height: 1.15;
-      margin: 18px 0;
-      text-shadow: 0 0 25px #ffd44724;
-    }
+h2 {
+  color: var(--gold-soft);
+  font-size: 25px;
+  line-height: 1.3;
+}
 
-    h2 {
-      color: var(--gold);
-      font-size: 25px;
-      line-height: 1.3;
-    }
+p { line-height: 1.8; }
 
-    p {
-      line-height: 1.8;
-    }
+.subtitle {
+  color: var(--muted);
+  max-width: 400px;
+  margin: 20px auto;
+}
 
-    .subtitle {
-      color: #e9dfb9;
-      max-width: 390px;
-      margin: 20px auto;
-    }
+.card {
+  background: linear-gradient(145deg, #241e0e, #100f0b);
+  border: 1px solid #a68a42;
+  border-radius: 22px;
+  padding: 23px 18px;
+  margin: 24px 0;
+  box-shadow: 0 12px 35px #0008, 0 0 22px #ffd44712;
+}
 
-    .card {
-      background: linear-gradient(145deg, #1e1a0e, #100f0b);
-      border: 1px solid #8f7529;
-      border-radius: 22px;
-      padding: 23px 18px;
-      margin: 24px 0;
-      box-shadow: 0 12px 35px #0006, 0 0 22px #ffd4470c;
-    }
+.flowers {
+  font-size: 27px;
+  letter-spacing: 5px;
+}
 
-    .flowers {
-      font-size: 27px;
-      letter-spacing: 5px;
-    }
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffe98a, #ffd447);
+  color: #171200;
+  border: 1px solid var(--gold);
+  border-radius: 40px;
+  padding: 15px 23px;
+  margin: 12px 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 22px #ffd44725;
+  transition: transform .2s;
+}
 
-    .btn {
-      display: inline-block;
-      background: var(--gold);
-      color: #171200;
-      border: 1px solid var(--gold);
-      border-radius: 40px;
-      padding: 15px 23px;
-      margin: 12px 5px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 22px #ffd44725;
-      transition: transform .2s;
-    }
+.btn:active { transform: scale(.96); }
 
-    .btn:active {
-      transform: scale(.96);
-    }
+.btn-outline {
+  color: var(--gold);
+  background: transparent;
+}
 
-    .btn-outline {
-      color: var(--gold);
-      background: transparent;
-    }
+.progress {
+  color: #c8b875;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
 
-    .progress {
-      color: #b9aa70;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 20px;
-    }
+.photo {
+  display: block;
+  padding: 0;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid #a68a42;
+  background: #17150d;
+  cursor: pointer;
+}
 
-    .photo {
-      display: block;
-      padding: 0;
-      min-width: 0;
-      aspect-ratio: 3 / 4;
-      overflow: hidden;
-      border-radius: 15px;
-      border: 1px solid #a68a32;
-      background: #17150d;
-      cursor: pointer;
-    }
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
 
-    .photo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
+.music-icon {
+  font-size: 65px;
+  margin: 10px;
+  animation: float 3s ease-in-out infinite;
+}
 
-    .photo img:not([src]) {
-      display: none;
-    }
+.song-title {
+  color: var(--gold-soft);
+  font-size: 21px;
+  font-weight: bold;
+}
 
-    .music-icon {
-      font-size: 65px;
-      margin: 10px;
-      animation: float 3s ease-in-out infinite;
-    }
+audio {
+  width: 100%;
+  margin: 20px 0;
+  accent-color: var(--gold);
+}
 
-    .song-title {
-      color: var(--gold-soft);
-      font-size: 21px;
-      font-weight: bold;
-    }
+.hint {
+  font-size: 12px;
+  color: #c4b98f;
+}
 
-    audio {
-      width: 100%;
-      margin: 20px 0;
-      accent-color: var(--gold);
-    }
+.letter {
+  display: none;
+  text-align: left;
+  background: #211b0d;
+  border: 1px solid #9a7c2c;
+  border-radius: 17px;
+  padding: 20px;
+  margin-top: 22px;
+  animation: appear .8s ease both;
+}
 
-    .hint {
-      font-size: 12px;
-      color: #c4b98f;
-    }
+.letter.open { display: block; }
 
-    .letter {
-      display: none;
-      text-align: left;
-      background: #211b0d;
-      border: 1px solid #9a7c2c;
-      border-radius: 17px;
-      padding: 20px;
-      margin-top: 22px;
-      animation: appear .8s ease both;
-    }
+.signature {
+  color: var(--gold);
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 25px;
+}
 
-    .letter.open {
-      display: block;
-    }
+.heart {
+  position: fixed;
+  z-index: 20;
+  bottom: -35px;
+  pointer-events: none;
+  animation: rise 5s linear forwards;
+}
 
-    .signature {
-      color: var(--gold);
-      text-align: center;
-      font-size: 23px;
-      font-weight: bold;
-      margin-top: 25px;
-    }
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #000e;
+}
 
-    .heart {
-      position: fixed;
-      z-index: 20;
-      bottom: -35px;
-      pointer-events: none;
-      animation: rise 5s linear forwards;
-    }
+.viewer.open { display: flex; }
 
-    .viewer {
-      position: fixed;
-      inset: 0;
-      z-index: 50;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: #000e;
-    }
+.viewer img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
 
-    .viewer.open {
-      display: flex;
-    }
+.close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #111;
+  font-size: 25px;
+}
 
-    .viewer img {
-      max-width: 100%;
-      max-height: 82vh;
-      object-fit: contain;
-      border-radius: 12px;
-    }
+footer {
+  color: #a99650;
+  font-size: 12px;
+  margin-top: 30px;
+}
 
-    .close {
-      position: absolute;
-      right: 18px;
-      top: 18px;
-      width: 44px;
-      height: 44px;
-      border: 0;
-      border-radius: 50%;
-      background: var(--gold);
-      color: #111;
-      font-size: 25px;
-    }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
 
-    footer {
-      color: #988650;
-      font-size: 12px;
-      margin-top: 30px;
-    }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-3deg); }
-      50% { transform: translateY(-12px) rotate(3deg); }
-    }
+@keyframes rise {
+  0% { opacity: 0; transform: translateY(0); }
+  15% { opacity: .9; }
+  100% { opacity: 0; transform: translateY(-110vh) rotate(30deg); }
+}
 
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes rise {
-      0% { opacity: 0; transform: translateY(0) rotate(0); }
-      15% { opacity: .9; }
-      100% { opacity: 0; transform: translateY(-110vh) rotate(30deg); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
 </head>
 
 <body>
 <main class="app">
 
-  <!-- ETAPA 1: PORTADA -->
-  <section class="stage active" id="stage1">
-    <p class="eyebrow">UNA MISIÓN MUY ESPECIAL</p>
-    <div class="bat" aria-hidden="true">🦇</div>
+<!-- ETAPA 1: PORTADA -->
+<section class="stage active" id="stage1">
+  <p class="eyebrow">UNA MISIÓN MUY ESPECIAL</p>
+  <div class="bat" aria-hidden="true">🦇</div>
+  <p class="eyebrow">PREPARADA PARA TI</p>
+  <h1>Una sorpresa de cumpleaños para Rosyta 💛</h1>
+  <p class="subtitle">
+    Hay algo que preparé con mucho cariño para una persona
+    que hace mi mundo más bonito y que, en todos mis días
+    de soledad y oscuridad, es la luz que me acompaña.
+  </p>
+  <button class="btn" type="button" data-next="stage2">
+    Abrir mi sorpresa ✨
+  </button>
+</section>
 
-    <p class="eyebrow">PREPARADA PARA TI</p>
-    <h1>Una sorpresa de cumpleaños para Rosyta 💛</h1>
-
-    <p class="subtitle">
-      Hay algo que preparé con mucho cariño para una persona
-      que hace mi mundo más bonito y que en todos mis dias 
-      de soledad y oscuridad es la luz que me acompaña.
+<!-- ETAPA 2: MENSAJE -->
+<section class="stage" id="stage2">
+  <p class="progress">PARTE 1 DE 4</p>
+  <div class="bat" aria-hidden="true">🦇</div>
+  <div class="card">
+    <div class="flowers">🌼 💛 🌼</div>
+    <h1>Para mi Rosyta de Ojos Lindos</h1>
+    <p>
+      Hoy quiero recordarte lo especial que eres para mí.
+      Tu sonrisa tiene una forma muy bonita de alegrarme el día,
+      y tus ojos son de esas cosas que podría mirar mil veces
+      sin cansarme. Aquella niña me ayudó a cambiar y a mejorar
+      como persona, y eso siempre te lo voy a agradecer, mi vida.
     </p>
-
-    <button class="btn" type="button" data-next="stage2">
-      Abrir mi sorpresa ✨
-    </button>
-  </section>
-
-  <!-- ETAPA 2: MENSAJE -->
-  <section class="stage" id="stage2">
-    <p class="progress">PARTE 1 DE 4</p>
-    <div class="bat" aria-hidden="true">🦇</div>
-
-    <div class="card">
-      <div class="flowers">🌼 💛 🌼</div>
-      <h1>Para mi Rosyta de Ojos Lindos</h1>
-
-      <p>
-        Hoy quiero recordarte lo especial que eres para mí.
-        Tu sonrisa tiene una forma muy bonita de alegrarme el día,
-        y tus ojos son de esas cosas que podría mirar mil veces
-        sin cansarme aquella niña que me ayudo a cambiar y a mejorar
-        como persona y eso siempre te lo voy agradecer mi vida.
-      </p>
-
-      <p>
-        Quería regalarte algo diferente, algo que pudieras abrir
-        y descubrir poco a poco, porque mereces detalles bonitos
-        y mucho amor pero por el momento por problemas no puedo darte
-        pero espero te guste este detalle.
-      </p>
-
-      <p><strong>Feliz cumpleaños, mi persona favorita. ❤️</strong></p>
-    </div>
-
-    <button class="btn" type="button" data-next="stage3">
-      Ver recuerdos de mi persona favorita 📸
-    </button>
-  </section>
-
-  <!-- ETAPA 3: NUEVE FOTOS -->
-  <section class="stage" id="stage3">
-    <p class="progress">PARTE 2 DE 4</p>
-    <h1>mi persona favorita ❤️</h1>
-    <p class="subtitle">
-      Nueve pedacitos de ti que hacen esta sorpresa todavía
-      más especial.
+    <p>
+      Quería regalarte algo diferente, algo que pudieras abrir
+      y descubrir poco a poco, porque mereces detalles bonitos
+      y mucho amor. Por el momento, por algunos problemas,
+      no puedo darte más, pero espero que te guste este detalle.
     </p>
+    <p><strong>Feliz cumpleaños, mi persona favorita. ❤️</strong></p>
+  </div>
+  <button class="btn" type="button" data-next="stage3">
+    Ver recuerdos de mi persona favorita 📸
+  </button>
+</section>
+    <!-- PANTALLA 3: GALERÍA DE FOTOS -->
+    <section class="stage" id="stage3">
+      <div class="card">
+        <span class="eyebrow">NUESTROS RECUERDOS</span>
+        <h2>Nueve pedacitos de felicidad 📸</h2>
+        <p class="description">
+          Cada foto guarda un momento que quiero conservar contigo.
+        </p>
 
-    <div class="card">
-      <div class="gallery">
-        <button class="photo" type="button" aria-label="Ampliar foto 1">
-          <img src="IMG-20260414-WA0000.jpg" alt="Rosyta, recuerdo 1">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 2">
-          <img src="IMG-20260414-WA0001.jpg" alt="Rosyta, recuerdo 2">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 3">
-          <img src="IMG-20260414-WA0002.jpg" alt="Rosyta, recuerdo 3">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 4">
-          <img src="IMG-20260414-WA0003.jpg" alt="Rosyta, recuerdo 4">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 5">
-          <img src="IMG-20260414-WA0004.jpg" alt="Rosyta, recuerdo 5">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 6">
-          <img src="IMG-20260427-WA0004.jpg" alt="Rosyta, recuerdo 6">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 7">
-          <img src="IMG-20260909-WA0107.jpg" alt="Rosyta, recuerdo 7">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 8">
-          <img src="IMG-20260918-WA0203.jpg" alt="Rosyta, recuerdo 8">
-        </button>
-        <button class="photo" type="button" aria-label="Ampliar foto 9">
-          <img src="IMG-20260921-WA0057.jpg" alt="Rosyta, recuerdo 9">
+        <div class="gallery">
+          <img src="IMG-20260414-WA0000.jpg" alt="Nuestro recuerdo 1">
+          <img src="IMG-20260414-WA0001.jpg" alt="Nuestro recuerdo 2">
+          <img src="IMG-20260414-WA0002.jpg" alt="Nuestro recuerdo 3">
+          <img src="IMG-20260414-WA0003.jpg" alt="Nuestro recuerdo 4">
+          <img src="IMG-20260414-WA0004.jpg" alt="Nuestro recuerdo 5">
+          <img src="IMG-20260427-WA0004.jpg" alt="Nuestro recuerdo 6">
+          <img src="IMG-20260909-WA0107.jpg" alt="Nuestro recuerdo 7">
+          <img src="IMG-20260918-WA0203.jpg" alt="Nuestro recuerdo 8">
+          <img src="IMG-20260921-WA0057.jpg" alt="Nuestro recuerdo 9">
+        </div>
+
+        <button class="btn" data-next="stage4">
+          Nuestra canción 🎵
         </button>
       </div>
-      <p class="hint">Toca cualquiera de las fotos para verla más grande. 💛</p>
-    </div>
+    </section>
 
-    <button class="btn" type="button" data-next="stage4">
-      Tengo una canción para ti 🎶
-    </button>
-  </section>
+    <!-- PANTALLA 4: CANCIÓN -->
+    <section class="stage" id="stage4">
+      <div class="card">
+        <span class="eyebrow">UNA CANCIÓN PARA TI</span>
+        <h2>La gloria eres tú 🎶</h2>
+        <p class="description">
+          Porque hay canciones que dicen lo que a veces
+          las palabras no pueden expresar.
+        </p>
 
-  <!-- ETAPA 4: CANCIÓN -->
-  <section class="stage" id="stage4">
-    <p class="progress">PARTE 3 DE 4</p>
+        <div class="music-disc">♫</div>
 
-    <div class="card">
-      <div class="music-icon">🎶</div>
-      <h1>Esta canción me recuerda a ti</h1>
+        <audio id="loveSong" controls preload="metadata">
+          <source src="la-gloria-eres-tu.mp3" type="audio/mpeg">
+          Tu navegador no puede reproducir este audio.
+        </audio>
 
-      <p class="song-title">La gloria eres tú</p>
-      <p>Luis Miguel</p>
+        <p class="small-note">
+          Si no comienza, presiona el botón de reproducir.
+        </p>
 
-      <p>
-        Hay canciones que nos hacen pensar en alguien especial.
-        Elegí esta porque quiero dedicarte un momento bonito
-        y que, cuando la escuches, recuerdes cuánto significas
-        para mí y lo mucho que te aprecio y siempre que escucho 
-        esta canción me hace recordar lo hermosa que eres.
-      </p>
+        <button class="btn" data-next="stage5">
+          Tengo algo más para ti 💌
+        </button>
+      </div>
+    </section>
 
-      <audio id="song" controls preload="metadata">
-        <source src="la-gloria-eres-tu.mp3" type="audio/mpeg">
-        Tu navegador no puede reproducir este audio.
-      </audio>
+    <!-- PANTALLA 5: CARTA FINAL -->
+    <section class="stage" id="stage5">
+      <div class="card">
+        <span class="eyebrow">PARA MI ROSYTA OJOS LINDOS</span>
+        <h2>Mi niña bonita 💛</h2>
+        <p class="description">
+          Preparé estas palabras con todo mi corazón.
+        </p>
 
-      <p class="hint">
-        Si el reproductor no carga la canción, todavía falta
-        agregar el archivo de audio al repositorio.
-      </p>
-    </div>
+        <button class="btn" id="openLetter">
+          Abrir mi carta 💌
+        </button>
 
-    <button class="btn" type="button" data-next="stage5">
-      Leer mi carta para ti 💌
-    </button>
-  </section>
+        <div class="letter" id="letter" hidden>
+          <h3>Para mi Rosyta Ojos Lindos</h3>
 
-  <!-- ETAPA 5: CARTA FINAL -->
-  <section class="stage" id="stage5">
-    <p class="progress">LA ÚLTIMA PARTE 💛</p>
+          <p>
+            Mi Rosyta Ojos Lindos, quiero que sepas lo especial
+            que eres para mí. Desde que llegaste a mi vida,
+            has hecho que muchos momentos sean más bonitos.
+          </p>
 
-    <div class="bat" aria-hidden="true">🦇</div>
-    <h1>Una última cosita, Rosyta...</h1>
+          <p>
+            Si pudiera pedir algo, sería seguir compartiendo
+            contigo risas, abrazos, sueños y muchos recuerdos.
+            Quiero verte feliz y recordarte siempre lo mucho
+            que vales para mí.
+          </p>
 
-    <p class="subtitle">
-      Guarda un poquito de espacio en tu corazón para estas palabras.
-    </p>
+          <p>
+            Gracias por existir y por ser esa personita que
+            hace que mi corazón sonría. No necesito un mundo
+            perfecto; me basta con tener momentos bonitos
+            contigo y seguir construyendo nuestra historia.
+          </p>
 
-    <div class="card">
-      <div class="flowers">💌 🌹 💌</div>
-      <h2>Una carta para mi persona favorita</h2>
+          <p>
+            Feliz cumpleaños, mi niña hermosa. Que la vida te
+            regale tantas razones para sonreír como las que tú
+            me regalas a mí. 🌼💛
+          </p>
 
-      <p>
-        No tienes idea de lo bonito que me haces sentir todos los dias 
-        y espero seguir pasando mas momentos como este junto a ti y 
-        ojala en un futuro sea estando mi presencia junto a la tuya 
-        recordar como llegamos hasta ese momento.
-      </p>
+          <p class="signature">Con amor, tu Pastorcito 🖤💛</p>
+        </div>
 
-      <button class="btn" type="button" id="letterButton">
-        Abrir mi carta ❤️
+        <button class="btn btn-secondary" id="restart">
+          Volver al principio ↺
+        </button>
+      </div>
+    </section>
+
+    <!-- VISOR PARA AMPLIAR LAS FOTOS -->
+    <div class="viewer" id="viewer" hidden>
+      <button class="viewer-close" id="closeViewer" aria-label="Cerrar">
+        ✕
       </button>
-
-      <article class="letter" id="letter">
-        <p>Mi Rosyta Ojos Lindos:</p>
-
-        <p>
-          Feliz cumpleaños, mi niña bonita. ❤️
-        </p>
-
-        <p>
-          Deseo de corazón que la vida te regale muchísimos
-          momentos felices, que cumplas tus sueños y que nunca
-          te falten motivos para sonreír. Mereces todo lo bonito
-          que existe en este mundo.
-        </p>
-
-        <p>
-          Quiero que recuerdes que eres alguien muy especial
-          para mí. Me encanta pensar en ti, en tu sonrisa,
-          en tus ojos y en todos esos pequeños detalles que
-          te hacen ser tú.
-        </p>
-
-        <p>
-          Preparé esta sorpresa porque quería que tu cumpleaños
-          tuviera un detalle diferente, algo hecho pensando
-          especialmente en ti. Ojalá te haya sacado una sonrisa,
-          porque esa era una de las cosas que más quería se que 
-          no sera lo que me dijiste que era tu sueño pero espero 
-          te guste porque sabes que todo lo que hago es con amor
-          y por lo mucho que te aprecio.
-        </p>
-
-        <p>
-          Gracias por ser tú, por existir y por inspirarme
-          a hacer algo tan bonito como esto.
-        </p>
-
-        <p>
-          Que hoy y todos los días encuentres razones para
-          ser feliz. Y que cuando veas esta página, recuerdes
-          que alguien quiso hacerte sentir especial que recuerdes
-          que siempre vas a tener a alguien que te escuche sin juzgate 
-          alguien que va estar para ti en los dias buenos o malos 
-          que fuiste lo mejor que le paso que recuerdes la gran niña que eres
-          y ojala aun que no sea conmigo que seas muy feliz que cumplas 
-          todo lo que un dia me contaste y espero que cumplas todo lo que
-          te propongas porque eres una niña que a pesar de que no le ah
-          ido bien sigue siendo una gran persona y estoy muy orgulloso
-          de la gran mujer que eres mi vida espero me des esa oportunidad
-          de tener y forzar algo bonito y no algo pasajero porque
-          ya no me veo sin ti espero te la pases muy bien en este día tan 
-          especial feliz cumpleaños mi rosyta fresita de ojos preciosos.
-        </p>
-
-        <p>Con todo mi cariño y un abrazo enorme,</p>
-
-        <p class="signature">Tu Pastorcito ❤️🦇</p>
-      </article>
+      <img id="viewerImage" src="" alt="Foto ampliada">
     </div>
 
-    <p>Siempre vas a ser mi persona favorita. 💛</p>
+  </main>
 
-    <button class="btn btn-outline" type="button" id="restart">
-      Volver a empezar ↻
-    </button>
-  </section>
+  <script>
+    // CAMBIO ENTRE LAS CINCO PANTALLAS
+    const stages = document.querySelectorAll(".stage");
+    const song = document.getElementById("loveSong");
 
-  <footer>
-    Hecho con cariño para Rosyta Ojos Lindos 🌼
-  </footer>
-</main>
+    function showStage(stageId) {
+      stages.forEach((stage) => {
+        stage.classList.toggle("active", stage.id === stageId);
+      });
 
-<!-- VISOR DE FOTOS -->
-<div class="viewer" id="viewer" role="dialog"
-     aria-modal="true" aria-label="Foto ampliada">
-  <button class="close" id="closeViewer" type="button"
-          aria-label="Cerrar foto">×</button>
-  <img id="largePhoto" src="" alt="Foto ampliada">
-</div>
+      if (stageId !== "stage4") {
+        song.pause();
+      }
 
-<script>
-  const stages = Array.from(document.querySelectorAll(".stage"));
-  const song = document.getElementById("song");
-  const letter = document.getElementById("letter");
-  const letterButton = document.getElementById("letterButton");
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
 
-  function showStage(id) {
-    stages.forEach(stage => stage.classList.remove("active"));
+      if (stageId === "stage2" || stageId === "stage5") {
+        createHearts();
+      }
+    }
 
-    const next = document.getElementById(id);
-    if (!next) return;
+    document.querySelectorAll("[data-next]").forEach((button) => {
+      button.addEventListener("click", () => {
+        showStage(button.dataset.next);
+      });
+    });
 
-    next.classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // ABRIR Y CERRAR LA CARTA
+    const openLetterButton = document.getElementById("openLetter");
+    const letter = document.getElementById("letter");
 
-    if (id !== "stage4") {
+    openLetterButton.addEventListener("click", () => {
+      letter.hidden = !letter.hidden;
+      openLetterButton.textContent = letter.hidden
+        ? "Abrir mi carta 💌"
+        : "Cerrar mi carta 💌";
+
+      if (!letter.hidden) {
+        createHearts();
+      }
+    });
+
+    // VISOR DE FOTOGRAFÍAS
+    const viewer = document.getElementById("viewer");
+    const viewerImage = document.getElementById("viewerImage");
+    const closeViewerButton = document.getElementById("closeViewer");
+
+    document.querySelectorAll(".gallery img").forEach((photo) => {
+      photo.addEventListener("click", () => {
+        viewerImage.src = photo.src;
+        viewerImage.alt = photo.alt;
+        viewer.hidden = false;
+      });
+    });
+
+    function closeViewer() {
+      viewer.hidden = true;
+      viewerImage.src = "";
+    }
+
+    closeViewerButton.addEventListener("click", closeViewer);
+
+    viewer.addEventListener("click", (event) => {
+      if (event.target === viewer) {
+        closeViewer();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeViewer();
+      }
+    });
+
+    // CORAZONES Y ESTRELLAS DECORATIVOS
+    function createHearts() {
+      const scene = document.getElementById("scene");
+
+      for (let i = 0; i < 12; i++) {
+        const heart = document.createElement("span");
+        heart.className = "floating-heart";
+        heart.textContent = Math.random() > 0.5 ? "💛" : "✨";
+        heart.style.left = Math.random() * 90 + 5 + "%";
+        heart.style.animationDelay = Math.random() * 1.5 + "s";
+
+        scene.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
+    }
+
+    // VOLVER AL INICIO
+    document.getElementById("restart").addEventListener("click", () => {
       song.pause();
-    }
-
-    if (id === "stage2" || id === "stage5") {
-      hearts();
-    }
-  }
-
-  document.querySelectorAll("[data-next]").forEach(button => {
-    button.addEventListener("click", () => {
-      showStage(button.dataset.next);
+      song.currentTime = 0;
+      letter.hidden = true;
+      openLetterButton.textContent = "Abrir mi carta 💌";
+      showStage("stage1");
     });
-  });
-
-  letterButton.addEventListener("click", () => {
-    const opened = letter.classList.toggle("open");
-    letterButton.textContent = opened
-      ? "Cerrar mi carta 💛"
-      : "Abrir mi carta ❤️";
-
-    if (opened) {
-      letter.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      hearts();
-    }
-  });
-
-  document.getElementById("restart").addEventListener("click", () => {
-    song.pause();
-    song.currentTime = 0;
-    letter.classList.remove("open");
-    letterButton.textContent = "Abrir mi carta ❤️";
-    showStage("stage1");
-  });
-
-  const viewer = document.getElementById("viewer");
-  const largePhoto = document.getElementById("largePhoto");
-
-  document.querySelectorAll(".photo").forEach(button => {
-    const img = button.querySelector("img");
-
-    img.addEventListener("error", () => {
-      button.style.borderColor = "#b84c4c";
-      img.alt = "No se encontró el archivo " + img.getAttribute("src");
-    });
-
-    button.addEventListener("click", () => {
-      if (!img.complete || img.naturalWidth === 0) return;
-      largePhoto.src = img.src;
-      largePhoto.alt = img.alt;
-      viewer.classList.add("open");
-    });
-  });
-
-  function closeViewer() {
-    viewer.classList.remove("open");
-    largePhoto.src = "";
-  }
-
-  document.getElementById("closeViewer").addEventListener("click", closeViewer);
-
-  viewer.addEventListener("click", event => {
-    if (event.target === viewer) closeViewer();
-  });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closeViewer();
-  });
-
-  function hearts() {
-    for (let i = 0; i < 12; i++) {
-      const heart = document.createElement("span");
-      heart.className = "heart";
-      heart.textContent = Math.random() > 0.5 ? "💛" : "✨";
-      heart.style.left = Math.random() * 95 + "vw";
-      heart.style.fontSize = (16 + Math.random() * 16) + "px";
-      heart.style.animationDelay = (Math.random() * 1.5) + "s";
-      document.body.appendChild(heart);
-      heart.addEventListener("animationend", () => heart.remove());
-    }
-  }
-</script>
+  </script>
 </body>
 </html>
