@@ -452,6 +452,15 @@
             Tu Pastorcito 🖤💛
           </p>
           <div class="bat-divider">🦇 ✦ 🦇</div>
+          
+<div class="bat-bouquet">
+  <div class="bouquet-flowers">🌹🌻🌹</div>
+  <div class="bouquet-bats">🦇 ✨ 🦇</div>
+  <div class="bouquet-wrap">💐</div>
+  <p>Un ramo especial para mi heroína favorita</p>
+  <span>Para Rosyta Ojos Lindos 💛</span>
+</div>
+          
         </article>
 
         <button class="btn btn-secondary" id="restart">
@@ -625,6 +634,52 @@
     @keyframes recordSpin {
       to { transform: rotate(360deg); }
     }
+ 
+.bat-bouquet {
+  margin: 28px auto 12px;
+  padding: 22px 12px;
+  text-align: center;
+  background: radial-gradient(
+    circle at center,
+    #30240d,
+    #111116 72%
+  );
+  border: 1px solid #c49a42;
+  border-radius: 18px;
+  box-shadow: 0 0 25px #e9b94320;
+  animation: enter 1s ease both;
+}
+
+.bouquet-flowers {
+  font-size: 43px;
+  letter-spacing: 4px;
+  filter: drop-shadow(0 0 9px #f5c45155);
+}
+
+.bouquet-bats {
+  margin: 8px 0;
+  color: #f5c451;
+  font-size: 22px;
+}
+
+.bouquet-wrap {
+  font-size: 64px;
+  filter: drop-shadow(0 0 12px #f5c45155);
+  animation: batPulse 3s ease-in-out infinite;
+}
+
+.bat-bouquet p {
+  color: #ffe7a0;
+  font-family: Georgia, serif;
+  font-size: 17px;
+}
+
+.bat-bouquet span {
+  color: #f5c451;
+  font-size: 13px;
+  font-weight: bold;
+}
+    
   </style>
 
   <script>
