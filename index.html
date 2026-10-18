@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,13 +18,8 @@
       --muted: #b9b5aa;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -36,31 +32,29 @@
       overflow-x: hidden;
     }
 
-    body::before {
+    body::before, body::after {
       content: "🦇";
       position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .06;
+    }
+
+    body::before {
       top: 8%;
       left: -25px;
       font-size: 90px;
-      opacity: .07;
       transform: rotate(-25deg);
-      pointer-events: none;
     }
 
     body::after {
-      content: "🦇";
-      position: fixed;
       right: -20px;
       bottom: 8%;
       font-size: 110px;
-      opacity: .06;
       transform: rotate(25deg);
-      pointer-events: none;
     }
 
-    button {
-      font: inherit;
-    }
+    button { font: inherit; }
 
     .scene {
       position: relative;
@@ -94,15 +88,8 @@
       pointer-events: none;
     }
 
-    .glow-1 {
-      top: 12%;
-      left: -100px;
-    }
-
-    .glow-2 {
-      right: -110px;
-      bottom: 8%;
-    }
+    .glow-1 { top: 12%; left: -100px; }
+    .glow-2 { right: -110px; bottom: 8%; }
 
     .stage {
       position: relative;
@@ -167,14 +154,8 @@
       margin: 10px 0 15px;
     }
 
-    p {
-      line-height: 1.75;
-    }
-
-    .description {
-      color: #e2ded3;
-      font-size: 15px;
-    }
+    p { line-height: 1.75; }
+    .description { color: #e2ded3; font-size: 15px; }
 
     .gold-line {
       width: 85px;
@@ -186,7 +167,7 @@
     .btn {
       display: block;
       width: 100%;
-      margin-top: 22px;
+      margin-top: 15px;
       padding: 15px 18px;
       color: #15110a;
       font-weight: 800;
@@ -198,9 +179,7 @@
       transition: transform .2s, filter .2s;
     }
 
-    .btn:active {
-      transform: scale(.97);
-    }
+    .btn:active { transform: scale(.97); }
 
     .btn-secondary {
       color: var(--gold-light);
@@ -208,10 +187,7 @@
       border-color: #b68b35;
     }
 
-    .small-note {
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .small-note { color: var(--muted); font-size: 12px; }
 
     .bat-divider {
       margin: 18px 0;
@@ -235,305 +211,9 @@
       letter-spacing: 3px;
     }
 
-    @keyframes enter {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    [hidden] { display: none !important; }
 
-    @keyframes batPulse {
-      0%, 100% { transform: scale(1); filter: brightness(1); }
-      50% { transform: scale(1.08); filter: brightness(1.4); }
-    }
-
-    @keyframes starGlow {
-      from { opacity: .25; }
-      to { opacity: .65; }
-    }
-
-    @keyframes floatUp {
-      to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 360px) {
-      .card { padding: 23px 16px; }
-      .stage { padding: 18px 12px; }
-    }
-  </style>
-</head>
-
-<body>
-  <main class="scene" id="scene">
-    <div class="stars" aria-hidden="true"></div>
-    <div class="glow glow-1" aria-hidden="true"></div>
-    <div class="glow glow-2" aria-hidden="true"></div>
-
-    <!-- SESIÓN 1: LA SEÑAL DE BATMAN -->
-    <section class="stage active" id="stage1">
-      <div class="card">
-        <span class="eyebrow">GOTHAM CITY • MENSAJE ESPECIAL</span>
-        <div class="bat-symbol" aria-hidden="true">🦇</div>
-        <h1>Una señal para ti, Rosyta</h1>
-        <div class="gold-line"></div>
-        <p class="description">
-          Esta noche, entre las luces de Gotham, hay una
-          señal que no llama a un héroe… llama a la dueña
-          de mi corazón.
-        </p>
-        <div class="bat-divider">✦ 🦇 ✦</div>
-        <p>Preparé algo especial para ti, mi niña hermosa. 💛</p>
-        <button class="btn" data-next="stage2">
-          Aceptar la señal 🦇
-        </button>
-        <div class="stage-number">01 / 05 • LA SEÑAL</div>
-      </div>
-    </section>
-
-    <!-- SESIÓN 2: EL MENSAJE -->
-    <section class="stage" id="stage2">
-      <div class="card">
-        <span class="eyebrow">ARCHIVOS SECRETOS DE GOTHAM</span>
-        <div class="bat-symbol" aria-hidden="true">🦇</div>
-        <h2>Mi heroína favorita</h2>
-        <div class="gold-line"></div>
-        <p class="description">
-          Dicen que Batman protege Gotham cuando cae la noche.
-          Yo no tengo una ciudad que salvar, pero sí tengo
-          algo que cuidar con todo mi corazón: tu sonrisa.
-        </p>
-        <p class="description">
-          Rosyta Ojos Lindos, eres esa luz dorada que hace
-          más bonito hasta el día más oscuro. Si mi mundo
-          fuera Gotham, tú serías mi señal de esperanza. 💛
-        </p>
-        <div class="bat-divider">🦇 ✦ 🦇</div>
-        <p>Y esta historia apenas comienza…</p>
-        <button class="btn" data-next="stage3">
-          Ver nuestros recuerdos 📸
-        </button>
-        <div class="stage-number">02 / 05 • MI HEROÍNA</div>
-      </div>
-    </section>
-
-    
-    <!-- SESIÓN 3: RECUERDOS DE GOTHAM -->
-    <section class="stage" id="stage3">
-      <div class="card">
-        <span class="eyebrow">ARCHIVO DE RECUERDOS • CLASIFICADO</span>
-        <div class="bat-symbol" aria-hidden="true">🦇</div>
-        <h2>Nuestra historia, mi tesoro</h2>
-        <p class="description">
-          Ni todos los secretos de Gotham valen tanto como
-          los momentos que he vivido contigo, Rosyta.
-          Cada foto es un recuerdo que guardo en el corazón.
-        </p>
-
-        <div class="gallery">
-          <img src="IMG-20260414-WA0000.jpg" alt="Nuestro recuerdo 1" loading="lazy">
-          <img src="IMG-20260414-WA0001.jpg" alt="Nuestro recuerdo 2" loading="lazy">
-          <img src="IMG-20260414-WA0002.jpg" alt="Nuestro recuerdo 3" loading="lazy">
-          <img src="IMG-20260414-WA0003.jpg" alt="Nuestro recuerdo 4" loading="lazy">
-          <img src="IMG-20260414-WA0004.jpg" alt="Nuestro recuerdo 5" loading="lazy">
-          <img src="IMG-20260427-WA0004.jpg" alt="Nuestro recuerdo 6" loading="lazy">
-          <img src="IMG-20260909-WA0107.jpg" alt="Nuestro recuerdo 7" loading="lazy">
-          <img src="IMG-20260918-WA0203.jpg" alt="Nuestro recuerdo 8" loading="lazy">
-          <img src="IMG-20260921-WA0057.jpg" alt="Nuestro recuerdo 9" loading="lazy">
-        </div>
-
-        <p class="small-note">Toca una fotografía para verla más grande.</p>
-
-        <button class="btn" data-next="stage4">
-          Activar nuestra banda sonora 🎵
-        </button>
-        <div class="stage-number">03 / 05 • NUESTROS RECUERDOS</div>
-      </div>
-    </section>
-
-    <!-- SESIÓN 4: LA BANDA SONORA -->
-    <section class="stage" id="stage4">
-      <div class="card">
-        <span class="eyebrow">GOTHAM RADIO • FRECUENCIA DEL AMOR</span>
-        <div class="bat-symbol" aria-hidden="true">♫</div>
-        <h2>La gloria eres tú</h2>
-        <div class="gold-line"></div>
-
-        <div class="record">
-          <div class="record-center">🦇</div>
-        </div>
-
-        <p class="description">
-          Para mi Rosyta Ojos Lindos.
-          Esta canción es un pequeño recordatorio de lo
-          especial que eres para mí.
-        </p>
-
-        <audio id="loveSong" controls preload="metadata">
-          <source src="la-gloria-eres-tu.mp3" type="audio/mpeg">
-          Tu navegador no puede reproducir este audio.
-        </audio>
-
-        <p class="small-note">
-          Presiona reproducir para escuchar tu canción.
-        </p>
-
-        <button class="btn" data-next="stage5">
-          Abrir el último secreto 💌
-        </button>
-        <div class="stage-number">04 / 05 • NUESTRA CANCIÓN</div>
-      </div>
-    </section>
-
-    <!-- SESIÓN 5: LA CARTA -->
-    <section class="stage" id="stage5">
-      <div class="card">
-        <span class="eyebrow">ÚLTIMO ARCHIVO • SOLO PARA ROSYTA</span>
-        <div class="bat-symbol" aria-hidden="true">🦇</div>
-        <h2>Mi misión más bonita eres tú</h2>
-
-        <p class="description">
-          Hasta Batman tiene algo que proteger.
-          Yo tengo a alguien que hace mi mundo más bonito:
-          tú, mi niña hermosa.
-        </p>
-
-        <div class="envelope" aria-hidden="true">💌</div>
-
-        <button class="btn" id="openLetter">
-          Desclasificar mi carta 💛
-        </button>
-
-        <article class="letter" id="letter" hidden>
-          <div class="gold-line"></div>
-          <h3>Para mi Rosyta Ojos Lindos</h3>
-
-          <p>
-            Mi Rosyta Ojos Lindos:
-          </p>
-
-          <p>
-            Si Gotham tuviera una luz capaz de vencer toda
-            la oscuridad, para mí esa luz llevaría tu nombre.
-            No necesito una capa ni una máscara para saber
-            que hay algo extraordinario en mi vida: tenerte
-            en mis pensamientos y poder quererte.
-          </p>
-
-          <p>
-            Quiero que nunca olvides lo importante que eres.
-            Tu sonrisa puede cambiar mis días, tus ojos tienen
-            algo que me hace perderme en ellos y tu forma de
-            ser ocupa un lugar muy especial en mi corazón.
-          </p>
-
-          <p>
-            No prometo ser un héroe perfecto, pero sí quiero
-            demostrarte con detalles, cariño y sinceridad
-            lo mucho que significas para mí. Quiero compartir
-            contigo más risas, abrazos, sueños y recuerdos.
-          </p>
-
-          <p>
-            Feliz cumpleaños, mi niña hermosa. Que nunca te
-            falten motivos para sonreír y que siempre recuerdes
-            que eres alguien increíble y muy especial para mí.
-          </p>
-
-          <p>
-            Si el mundo se vuelve oscuro, ojalá pueda ser
-            una pequeña luz para ti, así como tú lo eres para mí.
-          </p>
-
-          <p class="signature">
-            Con todo mi cariño,<br>
-            Tu Pastorcito 🖤💛
-          </p>
-          <div class="bat-divider">🦇 ✦ 🦇</div>
-          
-
-
-<div class="bat-bouquet bat-bouquet-v2">
-  <div class="bat-bouquet-title">
-    PARA MI HEROÍNA
-    <span>✦ GOTHAM CITY ✦</span>
-  </div>
-
-  <div class="bat-flower-heads">
-    <div class="bat-flower f1">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-    <div class="bat-flower f2">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-    <div class="bat-flower f3">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-    <div class="bat-flower f4">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-    <div class="bat-flower f5">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-    <div class="bat-flower f6">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-    <div class="bat-flower f7">
-      <div class="bat-cowl"><i></i><b></b><em></em></div>
-    </div>
-  </div>
-
-  <div class="bat-bouquet-paper">
-    <div class="bat-paper-fold"></div>
-    <div class="bat-gold-ribbon">🦇</div>
-  </div>
-
-  <p class="bat-bouquet-message">
-    Para la heroína que ilumina mi mundo.
-  </p>
-
-  <span class="bat-bouquet-name">
-    Rosyta Ojos Lindos 💛
-  </span>
-</div>
-          
-
-  <p class="bat-bouquet-message">
-    Para la heroína que ilumina mi mundo.
-  </p>
-  <span class="bat-bouquet-name">
-    Rosyta Ojos Lindos 💛
-  </span>
-</div>
-          
-          
-          
-        </article>
-
-        <button class="btn btn-secondary" id="restart">
-          Volver a vivir la sorpresa ↺
-        </button>
-        <div class="stage-number">05 / 05 • PARA SIEMPRE EN MI CORAZÓN</div>
-      </div>
-    </section>
-
-    <!-- VISOR PARA AMPLIAR LAS FOTOS -->
-    <div class="viewer" id="viewer" hidden>
-      <button class="viewer-close" id="closeViewer" aria-label="Cerrar foto">
-        ✕
-      </button>
-      <img id="viewerImage" src="" alt="Fotografía ampliada">
-    </div>
-
-    <footer class="footer">
-      <span>GOTHAM CITY</span> · HECHO CON AMOR PARA ROSYTA 🦇
-    </footer>
-  </main>
-
-  <style>
-    /* DISEÑO DE GALERÍA, MÚSICA Y CARTA */
-
+    /* GALERÍA */
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -553,10 +233,9 @@
       transition: transform .25s, box-shadow .25s;
     }
 
-    .gallery img:active {
-      transform: scale(.96);
-    }
+    .gallery img:active { transform: scale(.96); }
 
+    /* DISCO MUSICAL */
     .record {
       width: 150px;
       height: 150px;
@@ -594,6 +273,7 @@
       accent-color: #dca832;
     }
 
+    /* CARTA */
     .envelope {
       margin: 20px auto;
       font-size: 65px;
@@ -611,9 +291,7 @@
       animation: enter .6s ease both;
     }
 
-    .letter h3 {
-      text-align: center;
-    }
+    .letter h3 { text-align: center; }
 
     .letter p {
       color: #f1e8d3;
@@ -628,6 +306,7 @@
       font-style: italic;
     }
 
+    /* VISOR DE FOTOGRAFÍAS */
     .viewer {
       position: fixed;
       z-index: 50;
@@ -639,9 +318,7 @@
       background: #030407f5;
     }
 
-    .viewer[hidden] {
-      display: none !important;
-    }
+    .viewer[hidden] { display: none !important; }
 
     .viewer img {
       max-width: 100%;
@@ -675,601 +352,534 @@
       letter-spacing: 2px;
     }
 
-    .footer span {
+    .footer span { color: #f5c451; }
+
+    /* RAMO DE SIETE MÁSCARAS DE BATMAN */
+    .bat-bouquet {
+      position: relative;
+      margin: 28px auto 12px;
+      padding: 22px 10px 20px;
+      max-width: 360px;
+      overflow: hidden;
+      text-align: center;
+      background: radial-gradient(circle at top, #302713, #09090d 75%);
+      border: 1px solid #c49a42;
+      border-radius: 18px;
+      box-shadow: 0 0 24px #d9aa3525;
+    }
+
+    .bat-bouquet-v2 {
+      --bat-gold: #e4bd5b;
+      width: 100%;
+      max-width: 350px;
+      margin: 24px auto 15px;
+      padding: 22px 6px;
+      border-color: #9e813f;
+      background:
+        radial-gradient(ellipse at 50% 25%, #292719, transparent 65%),
+        linear-gradient(160deg, #111116, #050507);
+      box-shadow: 0 14px 35px #0009, 0 0 20px #d9b45c18;
+    }
+
+    .bat-bouquet-title {
       color: #f5c451;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+    }
+
+    .bat-bouquet-v2 .bat-bouquet-title {
+      position: relative;
+      z-index: 8;
+      margin-bottom: 0;
+      color: #ffe3a0;
+      line-height: 1.9;
+    }
+
+    .bat-bouquet-v2 .bat-bouquet-title span {
+      display: block;
+      color: #c9a44e;
+      font-size: 9px;
+      letter-spacing: 4px;
+    }
+
+    .bat-flower-heads {
+      position: relative;
+      width: 290px;
+      max-width: 100%;
+      height: 245px;
+      margin: 10px auto 0;
+    }
+
+    .bat-flower {
+      position: absolute;
+      width: 66px;
+      height: 180px;
+      filter: drop-shadow(0 3px 3px #000);
+      transform-origin: top center;
+    }
+
+    .bat-cowl {
+      position: relative;
+      width: 64px;
+      height: 78px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 38% 27%, #484950 0%, transparent 35%),
+        linear-gradient(110deg, #34353b, #15161b 55%, #030304);
+      clip-path: polygon(
+        4% 22%, 24% 15%, 31% 0%, 43% 21%,
+        57% 21%, 69% 0%, 76% 15%, 96% 22%,
+        86% 65%, 70% 84%, 50% 100%, 30% 84%, 14% 65%
+      );
+    }
+
+    .bat-cowl::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 12px;
+      width: 40px;
+      height: 18px;
+      background: linear-gradient(180deg, #414249, #17181c);
+      clip-path: polygon(
+        0 0, 40% 24%, 50% 38%, 60% 24%,
+        100% 0, 82% 72%, 50% 100%, 18% 72%
+      );
+    }
+
+    .bat-cowl i, .bat-cowl b {
+      position: absolute;
+      z-index: 3;
+      top: 39px;
+      display: block;
+      width: 21px;
+      height: 9px;
+      background: #fffdf1;
+      box-shadow: 0 0 5px #fff4bd80;
+    }
+
+    .bat-cowl i {
+      left: 7px;
+      clip-path: polygon(0 0, 100% 25%, 68% 100%, 20% 75%);
+    }
+
+    .bat-cowl b {
+      right: 7px;
+      clip-path: polygon(0 25%, 100% 0, 80% 75%, 32% 100%);
+    }
+
+    .bat-cowl em {
+      position: absolute;
+      z-index: 2;
+      left: 17px;
+      bottom: 6px;
+      width: 30px;
+      height: 19px;
+      background: linear-gradient(145deg, #292a30, #080809);
+      border-top: 1px solid #55545a;
+      clip-path: polygon(
+        0 0, 50% 24%, 100% 0,
+        78% 75%, 50% 100%, 22% 75%
+      );
+    }
+
+    .bat-flower::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 65px;
+      left: 32px;
+      width: 3px;
+      height: 125px;
+      border-radius: 3px;
+      background: linear-gradient(
+        180deg, #b49a52, #686039 55%, #282719
+      );
+    }
+
+    .bat-flower.f1 { left: 1px; top: 84px; transform: rotate(-17deg) scale(.82); }
+    .bat-flower.f2 { left: 32px; top: 37px; transform: rotate(-10deg) scale(.92); }
+    .bat-flower.f3 { left: 70px; top: 8px; transform: rotate(-4deg); }
+    .bat-flower.f4 { left: calc(50% - 33px); top: 29px; z-index: 4; transform: scale(1.06); }
+    .bat-flower.f5 { right: 32px; top: 37px; transform: rotate(10deg) scale(.92); }
+    .bat-flower.f6 { right: 1px; top: 84px; transform: rotate(17deg) scale(.82); }
+    .bat-flower.f7 { left: calc(50% - 33px); top: 104px; z-index: 5; transform: scale(.78); }
+
+    .bat-bouquet-paper {
+      position: relative;
+      z-index: 6;
+      width: 260px;
+      max-width: 94%;
+      height: 135px;
+      margin: -65px auto 0;
+      background: linear-gradient(
+        90deg, #08080a 0%, #29251a 20%, #111116 40%,
+        #30291b 60%, #111116 80%, #050506 100%
+      );
+      clip-path: polygon(
+        0 0, 100% 0, 88% 48%, 67% 83%,
+        55% 100%, 45% 100%, 33% 83%, 12% 48%
+      );
+    }
+
+    .bat-paper-fold {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        75deg, transparent 17%, #d9b45c45 19%, transparent 29%,
+        transparent 43%, #0008 45%, transparent 52%,
+        transparent 70%, #d9b45c30 72%, transparent 82%
+      );
+    }
+
+    .bat-gold-ribbon {
+      position: absolute;
+      top: 76px;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 30px;
+      transform: translateX(-50%);
+      border: 1px solid #f1d17b;
+      border-radius: 5px;
+      background: #17140d;
+      box-shadow: 0 0 8px #0008;
+      font-size: 21px;
+    }
+
+    .bat-bouquet-v2 .bat-bouquet-message {
+      position: relative;
+      z-index: 7;
+      margin: 14px 6px 8px;
+      color: #f5e4b7;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .bat-bouquet-v2 .bat-bouquet-name {
+      position: relative;
+      z-index: 7;
+      display: block;
+      color: #f5c451;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* Animación progresiva del ramo */
+    .bouquet-reveal .bat-flower {
+      animation: flowerRise .85s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .bouquet-reveal .bat-flower.f1 { animation-delay: .05s; }
+    .bouquet-reveal .bat-flower.f2 { animation-delay: .15s; }
+    .bouquet-reveal .bat-flower.f3 { animation-delay: .25s; }
+    .bouquet-reveal .bat-flower.f4 { animation-delay: .35s; }
+    .bouquet-reveal .bat-flower.f5 { animation-delay: .45s; }
+    .bouquet-reveal .bat-flower.f6 { animation-delay: .55s; }
+    .bouquet-reveal .bat-flower.f7 { animation-delay: .65s; }
+
+    .bouquet-reveal .bat-bouquet-paper {
+      animation: paperRise .9s .75s both;
+    }
+
+    .bouquet-reveal .bat-gold-ribbon {
+      animation: ribbonGlow 2s 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes batPulse {
+      0%, 100% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.08); filter: brightness(1.4); }
+    }
+
+    @keyframes starGlow {
+      from { opacity: .25; }
+      to { opacity: .65; }
+    }
+
+    @keyframes floatUp {
+      to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
     }
 
     @keyframes recordSpin {
       to { transform: rotate(360deg); }
     }
- 
 
+    @keyframes flowerRise {
+      from { opacity: 0; translate: 0 28px; }
+      to { opacity: 1; translate: 0 0; }
+    }
 
-.bat-bouquet {
-  position: relative;
-  margin: 28px auto 12px;
-  padding: 22px 10px 20px;
-  max-width: 360px;
-  overflow: hidden;
-  text-align: center;
-  background: radial-gradient(circle at top, #302713, #09090d 75%);
-  border: 1px solid #c49a42;
-  border-radius: 18px;
-  box-shadow: 0 0 24px #d9aa3525;
-}
+    @keyframes paperRise {
+      from { opacity: 0; translate: 0 18px; }
+      to { opacity: 1; translate: 0 0; }
+    }
 
-.bat-bouquet-title {
-  color: #f5c451;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 3px;
-  margin-bottom: 24px;
-}
+    @keyframes ribbonGlow {
+      from { box-shadow: 0 0 6px #d6ad4b55; }
+      to { box-shadow: 0 0 18px #ffe39a; }
+    }
 
-.bat-mask-bouquet {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4px;
-  height: 155px;
-  padding-top: 16px;
-}
+    @media (max-width: 360px) {
+      .card { padding: 23px 16px; }
+      .stage { padding: 18px 12px; }
+      .bat-bouquet-v2 { padding-right: 4px; padding-left: 4px; }
+      .bat-bouquet-v2 .bat-flower-heads {
+        transform: scale(.9);
+        transform-origin: top center;
+        margin-bottom: -24px;
+      }
+    }
 
-.mask-stem {
-  position: relative;
-  width: 54px;
-  height: 130px;
-  flex-shrink: 0;
-}
-
-.mask-stem:nth-child(1),
-.mask-stem:nth-child(5) {
-  margin-top: 25px;
-}
-
-.mask-stem:nth-child(2),
-.mask-stem:nth-child(4) {
-  margin-top: 10px;
-}
-
-.mask-center {
-  z-index: 2;
-  margin-top: -2px;
-}
-
-.bat-mask-face {
-  position: relative;
-  width: 54px;
-  height: 68px;
-  margin: 0 auto;
-  background: linear-gradient(145deg, #393a40, #101014 65%, #030304);
-  border: 1px solid #b99543;
-  border-radius: 42% 42% 45% 45%;
-  clip-path: polygon(
-    0 0, 25% 12%, 37% 4%, 63% 4%, 75% 12%,
-    100% 0, 91% 68%, 72% 91%, 50% 100%,
-    28% 91%, 9% 68%
-  );
-  filter: drop-shadow(0 0 5px #e8bb4b55);
-}
-
-.bat-ears {
-  position: absolute;
-  top: -8px;
-  left: 7px;
-  width: 40px;
-  height: 24px;
-  background: #17171c;
-  clip-path: polygon(0 100%, 12% 0, 38% 57%, 62% 57%, 88% 0, 100% 100%);
-}
-
-.bat-eyes {
-  position: absolute;
-  top: 31px;
-  left: 8px;
-  display: flex;
-  justify-content: space-between;
-  width: 36px;
-}
-
-.bat-eyes i {
-  display: block;
-  width: 15px;
-  height: 7px;
-  background: #f5d77a;
-  clip-path: polygon(0 0, 100% 30%, 65% 100%, 20% 80%);
-  box-shadow: 0 0 7px #ffdc69;
-}
-
-.bat-mouth {
-  position: absolute;
-  bottom: 8px;
-  left: 19px;
-  width: 16px;
-  height: 10px;
-  background: #08080a;
-  border-bottom: 1px solid #b99543;
-  clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
-}
-
-.mask-stem::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 61px;
-  left: 26px;
-  width: 2px;
-  height: 75px;
-  background: linear-gradient(#c49a42, #34301f);
-}
-
-.bat-bouquet-wrap {
-  position: relative;
-  width: 190px;
-  height: 100px;
-  margin: -8px auto 10px;
-  background: linear-gradient(
-    110deg,
-    #050505 0%,
-    #24221d 28%,
-    #080808 50%,
-    #302713 72%,
-    #050505 100%
-  );
-  border: 1px solid #a88334;
-  clip-path: polygon(0 0, 100% 0, 76% 100%, 50% 79%, 24% 100%);
-}
-
-.bat-bouquet-wrap::before {
-  content: "🦇";
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  color: #f5c451;
-  font-size: 28px;
-}
-
-.bat-bouquet-ribbon {
-  position: absolute;
-  left: 50%;
-  top: 53px;
-  width: 43px;
-  height: 20px;
-  transform: translateX(-50%);
-  border: 2px solid #e4bb55;
-  border-radius: 5px;
-  background: #14110b;
-}
-
-.bat-bouquet-bats {
-  color: #f5c451;
-  font-size: 18px;
-  letter-spacing: 3px;
-  margin: 10px 0;
-}
-
-.bat-bouquet p {
-  color: #ffe7a0;
-  font-family: Georgia, serif;
-  font-size: 16px;
-  margin: 12px 0 8px;
-}
-
-.bat-bouquet .bat-dedication {
-  display: block;
-  color: #f5c451;
-  font-size: 13px;
-  font-weight: bold;
-  }
-    
-
-
-/* ===== RAMO BATMAN PARA ROSYTA: NUEVO DISEÑO ===== */
-
-.bat-bouquet-v2 {
-  --bat-gold: #e4bd5b;
-  position: relative;
-  width: 100%;
-  max-width: 350px;
-  margin: 30px auto 15px;
-  padding: 22px 6px 22px;
-  overflow: hidden;
-  box-sizing: border-box;
-  text-align: center;
-  border: 1px solid #9e813f;
-  border-radius: 18px;
-  background:
-    radial-gradient(ellipse at 50% 25%, #292719, transparent 65%),
-    linear-gradient(160deg, #111116, #050507);
-  box-shadow: 0 14px 35px #0009, 0 0 20px #d9b45c18;
-}
-
-.bat-bouquet-v2 .bat-bouquet-title {
-  position: relative;
-  z-index: 8;
-  margin-bottom: 0;
-  color: #ffe3a0;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 3px;
-  line-height: 1.9;
-}
-
-.bat-bouquet-v2 .bat-bouquet-title span {
-  display: block;
-  color: #c9a44e;
-  font-size: 9px;
-  letter-spacing: 4px;
-}
-
-/* Zona donde se agrupan las siete cabezas */
-.bat-bouquet-v2 .bat-flower-heads {
-  position: relative;
-  width: 290px;
-  max-width: 100%;
-  height: 245px;
-  margin: 10px auto 0;
-}
-
-/* Cada flor tiene forma de máscara */
-.bat-bouquet-v2 .bat-flower {
-  position: absolute;
-  width: 66px;
-  height: 180px;
-  filter: drop-shadow(0 3px 3px #000);
-}
-
-/* Capucha: orejas puntiagudas y mandíbula angulada */
-.bat-bouquet-v2 .bat-cowl {
-  position: relative;
-  width: 64px;
-  height: 78px;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  background:
-    radial-gradient(ellipse at 38% 27%, #484950 0%, transparent 35%),
-    linear-gradient(110deg, #34353b, #15161b 55%, #030304);
-  clip-path: polygon(
-    4% 22%,
-    24% 15%,
-    31% 0%,
-    43% 21%,
-    57% 21%,
-    69% 0%,
-    76% 15%,
-    96% 22%,
-    86% 65%,
-    70% 84%,
-    50% 100%,
-    30% 84%,
-    14% 65%
-  );
-}
-
-/* Ceja y frente */
-.bat-bouquet-v2 .bat-cowl::before {
-  content: "";
-  position: absolute;
-  top: 22px;
-  left: 12px;
-  width: 40px;
-  height: 18px;
-  background: linear-gradient(180deg, #414249, #17181c);
-  clip-path: polygon(
-    0 0, 40% 24%, 50% 38%,
-    60% 24%, 100% 0,
-    82% 72%, 50% 100%, 18% 72%
-  );
-}
-
-/* Ojos blancos, estrechos e inclinados */
-.bat-bouquet-v2 .bat-cowl i,
-.bat-bouquet-v2 .bat-cowl b {
-  position: absolute;
-  z-index: 3;
-  top: 39px;
-  display: block;
-  width: 21px;
-  height: 9px;
-  background: #fffdf1;
-  box-shadow: 0 0 5px #fff4bd80;
-}
-
-.bat-bouquet-v2 .bat-cowl i {
-  left: 7px;
-  clip-path: polygon(
-    0 0, 100% 25%, 68% 100%, 20% 75%
-  );
-}
-
-.bat-bouquet-v2 .bat-cowl b {
-  right: 7px;
-  clip-path: polygon(
-    0 25%, 100% 0, 80% 75%, 32% 100%
-  );
-}
-
-/* Zona inferior de la máscara */
-.bat-bouquet-v2 .bat-cowl em {
-  position: absolute;
-  z-index: 2;
-  left: 17px;
-  bottom: 6px;
-  width: 30px;
-  height: 19px;
-  background: linear-gradient(145deg, #292a30, #080809);
-  border-top: 1px solid #55545a;
-  clip-path: polygon(
-    0 0, 50% 24%, 100% 0,
-    78% 75%, 50% 100%, 22% 75%
-  );
-}
-
-/* Tallos largos, visibles debajo de las máscaras */
-.bat-bouquet-v2 .bat-flower::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 65px;
-  left: 32px;
-  width: 3px;
-  height: 125px;
-  border-radius: 3px;
-  background: linear-gradient(
-    180deg, #b49a52, #686039 55%, #282719
-  );
-}
-
-/* Distribución en forma de abanico */
-.bat-bouquet-v2 .bat-flower.f1 {
-  left: 1px;
-  top: 84px;
-  transform: rotate(-17deg) scale(.82);
-}
-
-.bat-bouquet-v2 .bat-flower.f2 {
-  left: 32px;
-  top: 37px;
-  transform: rotate(-10deg) scale(.92);
-}
-
-.bat-bouquet-v2 .bat-flower.f3 {
-  left: 70px;
-  top: 8px;
-  transform: rotate(-4deg);
-}
-
-.bat-bouquet-v2 .bat-flower.f4 {
-  left: calc(50% - 33px);
-  top: 29px;
-  z-index: 4;
-  transform: scale(1.06);
-}
-
-.bat-bouquet-v2 .bat-flower.f5 {
-  right: 32px;
-  top: 37px;
-  transform: rotate(10deg) scale(.92);
-}
-
-.bat-bouquet-v2 .bat-flower.f6 {
-  right: 1px;
-  top: 84px;
-  transform: rotate(17deg) scale(.82);
-}
-
-.bat-bouquet-v2 .bat-flower.f7 {
-  left: calc(50% - 33px);
-  top: 104px;
-  z-index: 5;
-  transform: scale(.78);
-}
-
-/* Papel de envoltura: ancho arriba, estrecho abajo */
-.bat-bouquet-v2 .bat-bouquet-paper {
-  position: relative;
-  z-index: 6;
-  width: 260px;
-  max-width: 94%;
-  height: 135px;
-  margin: -65px auto 0;
-  box-sizing: border-box;
-  background:
-    linear-gradient(
-      90deg,
-      #08080a 0%,
-      #29251a 20%,
-      #111116 40%,
-      #30291b 60%,
-      #111116 80%,
-      #050506 100%
-    );
-  clip-path: polygon(
-    0 0, 100% 0,
-    88% 48%, 67% 83%,
-    55% 100%, 45% 100%,
-    33% 83%, 12% 48%
-  );
-}
-
-/* Pliegues dorados del papel */
-.bat-bouquet-v2 .bat-paper-fold {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    75deg,
-    transparent 17%,
-    #d9b45c45 19%,
-    transparent 29%,
-    transparent 43%,
-    #0008 45%,
-    transparent 52%,
-    transparent 70%,
-    #d9b45c30 72%,
-    transparent 82%
-  );
-}
-
-/* Moño en la parte estrecha del envoltorio */
-.bat-bouquet-v2 .bat-gold-ribbon {
-  position: absolute;
-  top: 76px;
-  left: 50%;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 30px;
-  transform: translateX(-50%);
-  border: 1px solid #f1d17b;
-  border-radius: 5px;
-  background: #17140d;
-  box-shadow: 0 0 8px #0008;
-  font-size: 21px;
-}
-
-.bat-bouquet-v2 .bat-bouquet-message {
-  position: relative;
-  z-index: 7;
-  margin: 14px 6px 8px;
-  color: #f5e4b7;
-  font-family: Georgia, serif;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.bat-bouquet-v2 .bat-bouquet-name {
-  position: relative;
-  z-index: 7;
-  display: block;
-  color: #f5c451;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-@media (max-width: 360px) {
-  .bat-bouquet-v2 {
-    padding-right: 4px;
-    padding-left: 4px;
-  }
-
-  .bat-bouquet-v2 .bat-flower-heads {
-    transform: scale(.9);
-    transform-origin: top center;
-    margin-bottom: -24px;
-  }
-  }
-    
-    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
+</head>
 
-  <script>
-    // NAVEGACIÓN ENTRE LAS CINCO SESIONES
-    const stages = document.querySelectorAll(".stage");
-    const song = document.getElementById("loveSong");
+<body>
+  <main class="scene" id="scene">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="glow glow-1" aria-hidden="true"></div>
+    <div class="glow glow-2" aria-hidden="true"></div>
 
-    function showStage(stageId) {
-      stages.forEach((stage) => {
-        stage.classList.toggle("active", stage.id === stageId);
-      });
+    <!-- SESIÓN 1: LA SEÑAL DE BATMAN -->
+    <section class="stage active" id="stage1">
+      <div class="card">
+        <span class="eyebrow">GOTHAM CITY • MENSAJE ESPECIAL</span>
+        <div class="bat-symbol" aria-hidden="true">🦇</div>
+        <h1>Una señal para ti, Rosyta</h1>
+        <div class="gold-line"></div>
+        <p class="description">
+          Esta noche, entre las luces de Gotham, hay una
+          señal que no llama a un héroe… llama a la dueña
+          de mi corazón.
+        </p>
+        <div class="bat-divider">✦ 🦇 ✦</div>
+        <p>Preparé algo especial para ti, mi niña hermosa. 💛</p>
+        <button class="btn" data-next="stage2">Aceptar la señal 🦇</button>
+        <div class="stage-number">01 / 06 • LA SEÑAL</div>
+      </div>
+    </section>
 
-      if (stageId !== "stage4") {
-        song.pause();
-      }
+    <!-- SESIÓN 2: EL MENSAJE -->
+    <section class="stage" id="stage2">
+      <div class="card">
+        <span class="eyebrow">ARCHIVOS SECRETOS DE GOTHAM</span>
+        <div class="bat-symbol" aria-hidden="true">🦇</div>
+        <h2>Mi heroína favorita</h2>
+        <div class="gold-line"></div>
+        <p class="description">
+          Dicen que Batman protege Gotham cuando cae la noche.
+          Yo no tengo una ciudad que salvar, pero sí tengo
+          algo que cuidar con todo mi corazón: tu sonrisa.
+        </p>
+        <p class="description">
+          Rosyta Ojos Lindos, eres esa luz dorada que hace
+          más bonito hasta el día más oscuro. Si mi mundo
+          fuera Gotham, tú serías mi señal de esperanza. 💛
+        </p>
+        <div class="bat-divider">🦇 ✦ 🦇</div>
+        <p>Y esta historia apenas comienza…</p>
+        <button class="btn" data-next="stage3">Ver nuestros recuerdos 📸</button>
+        <div class="stage-number">02 / 06 • MI HEROÍNA</div>
+      </div>
+    </section>
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    <!-- SESIÓN 3: RECUERDOS DE GOTHAM -->
+    <section class="stage" id="stage3">
+      <div class="card">
+        <span class="eyebrow">ARCHIVO DE RECUERDOS • CLASIFICADO</span>
+        <div class="bat-symbol" aria-hidden="true">🦇</div>
+        <h2>Nuestra historia, mi tesoro</h2>
+        <p class="description">
+          Ni todos los secretos de Gotham valen tanto como
+          los momentos que he vivido contigo, Rosyta.
+          Cada foto es un recuerdo que guardo en el corazón.
+        </p>
 
-      if (stageId === "stage2" || stageId === "stage5") {
-        createHearts();
-      }
-    }
+        <div class="gallery">
+          <img src="IMG-20260414-WA0000.jpg" alt="Nuestro recuerdo 1" loading="lazy">
+          <img src="IMG-20260414-WA0001.jpg" alt="Nuestro recuerdo 2" loading="lazy">
+          <img src="IMG-20260414-WA0002.jpg" alt="Nuestro recuerdo 3" loading="lazy">
+          <img src="IMG-20260414-WA0003.jpg" alt="Nuestro recuerdo 4" loading="lazy">
+          <img src="IMG-20260414-WA0004.jpg" alt="Nuestro recuerdo 5" loading="lazy">
+          <img src="IMG-20260427-WA0004.jpg" alt="Nuestro recuerdo 6" loading="lazy">
+          <img src="IMG-20260909-WA0107.jpg" alt="Nuestro recuerdo 7" loading="lazy">
+          <img src="IMG-20260918-WA0203.jpg" alt="Nuestro recuerdo 8" loading="lazy">
+          <img src="IMG-20260921-WA0057.jpg" alt="Nuestro recuerdo 9" loading="lazy">
+        </div>
 
-    document.querySelectorAll("[data-next]").forEach((button) => {
-      button.addEventListener("click", () => {
-        showStage(button.dataset.next);
-      });
-    });
+        <p class="small-note">Toca una fotografía para verla más grande.</p>
+        <button class="btn" data-next="stage4">Activar nuestra banda sonora 🎵</button>
+        <div class="stage-number">03 / 06 • NUESTROS RECUERDOS</div>
+      </div>
+    </section>
 
-    // ABRIR Y CERRAR LA CARTA
-    const openLetterButton = document.getElementById("openLetter");
-    const letter = document.getElementById("letter");
+    <!-- SESIÓN 4: LA BANDA SONORA -->
+<section class="stage" id="stage4">
+  <div class="card">
+    <span class="stage-number">SESIÓN 4 / 06</span>
 
-    openLetterButton.addEventListener("click", () => {
-      letter.hidden = !letter.hidden;
+    <h2>Una canción para ti 🖤</h2>
 
-      openLetterButton.textContent = letter.hidden
-        ? "Desclasificar mi carta 💛"
-        : "Cerrar mi carta 💌";
+    <p>
+      Porque hay canciones que dicen lo que a veces
+      las palabras no pueden expresar.
+    </p>
 
-      if (!letter.hidden) {
-        createHearts();
-      }
-    });
+    <div class="song-card">
+      <div class="song-icon">🦇🎵💛</div>
+      <h3>La gloria eres tú</h3>
+      <p>Una canción especial para Rosyta Ojos Lindos</p>
 
-    // AMPLIAR LAS FOTOGRAFÍAS
-    const viewer = document.getElementById("viewer");
-    const viewerImage = document.getElementById("viewerImage");
-    const closeViewerButton = document.getElementById("closeViewer");
+      <audio controls preload="metadata">
+        <source src="la-gloria-eres-tu.mp3" type="audio/mpeg">
+        Tu navegador no puede reproducir este audio.
+      </audio>
+    </div>
 
-    document.querySelectorAll(".gallery img").forEach((photo) => {
-      photo.addEventListener("click", () => {
-        viewerImage.src = photo.src;
-        viewerImage.alt = photo.alt;
-        viewer.hidden = false;
-      });
-    });
+    <button class="next-btn" data-next="stage5">
+      Continuar a mi carta 💌
+    </button>
+  </div>
+</section>
 
-    function closeViewer() {
-      viewer.hidden = true;
-      viewerImage.src = "";
-    }
+    <!-- SESIÓN 5: CARTA -->
+<section class="stage" id="stage5">
+  <div class="card">
+    <span class="stage-number">SESIÓN 5 / 06</span>
 
-    closeViewerButton.addEventListener("click", closeViewer);
+    <h2>Una carta para ti 💛</h2>
 
-    viewer.addEventListener("click", (event) => {
-      if (event.target === viewer) {
-        closeViewer();
-      }
-    });
+    <p>
+      Rosyta Ojos Lindos, preparé estas palabras
+      especialmente para ti.
+    </p>
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeViewer();
-      }
-    });
+    <button class="next-btn" id="openLetter">
+      Abrir mi misión 💌
+    </button>
 
-    // CORAZONES Y DESTELLOS FLOTANTES
-    function createHearts() {
-      const scene = document.getElementById("scene");
+    <article id="letter" class="letter hidden">
+      <h3>Para mi Rosyta Ojos Lindos 🖤💛</h3>
 
-      for (let i = 0; i < 12; i++) {
-        const heart = document.createElement("span");
-        heart.className = "floating-heart";
-        heart.textContent = Math.random() > 0.5 ? "💛" : "🦇";
-        heart.style.left = Math.random() * 90 + 5 + "%";
-        heart.style.animationDelay = Math.random() * 1.5 + "s";
+      <p>
+        Hoy quiero recordarte lo especial que eres para mí.
+        Espero que este cumpleaños esté lleno de sonrisas,
+        momentos bonitos y muchas razones para ser feliz.
+      </p>
 
-        scene.appendChild(heart);
+      <p>
+        Así como Batman protege Gotham, quiero que sepas
+        que deseo verte feliz y acompañarte en los momentos
+        importantes de tu vida.
+      </p>
 
-        setTimeout(() => {
-          heart.remove();
-        }, 4500);
-      }
-    }
+      <p>
+        Gracias por ser tú, por tu forma de ser y por tener
+        esa luz tan especial que hace que todo sea más bonito.
+      </p>
 
-    // VOLVER A COMENZAR
-    document.getElementById("restart").addEventListener("click", () => {
-      song.pause();
-      song.currentTime = 0;
-      letter.hidden = true;
-      openLetterButton.textContent = "Desclasificar mi carta 💛";
-      closeViewer();
-      showStage("stage1");
-    });
-  </script>
-</body>
-</html>
+      <p>
+        Espero que este pequeño detalle te saque una sonrisa
+        y te recuerde lo mucho que vales.
+      </p>
 
-    
+      <p class="signature">
+        Con mucho cariño,<br>
+        <strong>Tu Pastorcito 🖤💛</strong>
+      </p>
+    </article>
+
+    <button class="next-btn" data-next="stage6">
+      Ver tu ramo sorpresa 🌻
+    </button>
+  </div>
+</section>  
+
+<!-- SESIÓN 6: Regalo de batman pastorcito -->
+<section class="stage" id="stage6">
+  <div class="card">
+    <span class="stage-number">SESIÓN 6 / 06</span>
+
+    <h2>Un ramo para mi heroína 🖤💛</h2>
+
+    <p>
+      No son flores comunes: son siete pequeñas sorpresas
+      preparadas para ti, Rosyta Ojos Lindos.
+    </p>
+
+    <div class="bat-bouquet bat-bouquet-v2">
+      <div class="bat-bouquet-glow"></div>
+
+      <div class="bat-flowers">
+        <div class="bat-flower flower-1">
+          <div class="bat-cowl"></div>
+        </div>
+
+        <div class="bat-flower flower-2">
+          <div class="bat-cowl"></div>
+        </div>
+
+        <div class="bat-flower flower-3">
+          <div class="bat-cowl"></div>
+        </div>
+
+        <div class="bat-flower flower-4">
+          <div class="bat-cowl"></div>
+        </div>
+
+        <div class="bat-flower flower-5">
+          <div class="bat-cowl"></div>
+        </div>
+
+        <div class="bat-flower flower-6">
+          <div class="bat-cowl"></div>
+        </div>
+
+        <div class="bat-flower flower-7">
+          <div class="bat-cowl"></div>
+        </div>
+      </div>
+
+      <div class="bat-bouquet-stems">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="bat-bouquet-paper">
+        <div class="bat-paper-fold"></div>
+        <div class="bat-bouquet-ribbon"></div>
+      </div>
+
+      <p class="bat-bouquet-message">
+        Para la heroína que ilumina mi mundo.
+      </p>
+
+      <span class="bat-bouquet-name">
+        Rosyta Ojos Lindos 💛
+      </span>
+    </div>
+
+    <p class="final-message">
+      ¡Feliz cumpleaños! Que nunca te falten motivos para sonreír. 🦇💛
+    </p>
+
+    <button class="next-btn" data-next="stage5">
+      Volver a mi carta 💌
+    </button>
+  </div>
+</section>
