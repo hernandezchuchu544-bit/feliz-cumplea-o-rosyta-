@@ -344,166 +344,167 @@
 
 
     
-/* ===== RAMO COMPACTO DE 20 FLORES BATMAN ===== */
+
+/* ===== RAMO TUPIDO: 20 FLORES JUNTAS ===== */
 
 .bat-bouquet .bat-flower-heads {
   position: relative;
   width: 290px;
   max-width: 100%;
-  height: 275px;
-  margin: 8px auto 0;
+  height: 245px;
+  margin: 0 auto;
 }
 
-/* Tamaño y superposición de las flores */
 .bat-bouquet .bat-flower {
   position: absolute;
   width: 66px;
   height: 180px;
 }
 
-/* FILA SUPERIOR: 5 flores */
+/* BASE: 5 FLORES */
 .bat-bouquet .bat-flower.f1 {
-  left: 0;
-  top: 28px;
-  transform: rotate(-18deg) scale(.72);
+  left: 5px;
+  top: 72px;
+  transform: rotate(-18deg) scale(.78);
 }
 
 .bat-bouquet .bat-flower.f2 {
-  left: 35px;
-  top: 5px;
-  transform: rotate(-10deg) scale(.78);
+  left: 48px;
+  top: 82px;
+  transform: rotate(-9deg) scale(.8);
 }
 
 .bat-bouquet .bat-flower.f3 {
-  left: 75px;
-  top: 0;
-  transform: rotate(-4deg) scale(.82);
+  left: calc(50% - 33px);
+  top: 88px;
+  z-index: 3;
+  transform: scale(.82);
 }
 
 .bat-bouquet .bat-flower.f4 {
-  left: calc(50% - 33px);
-  top: 7px;
-  z-index: 5;
-  transform: scale(.84);
+  right: 48px;
+  top: 82px;
+  transform: rotate(9deg) scale(.8);
 }
 
 .bat-bouquet .bat-flower.f5 {
-  right: 35px;
-  top: 5px;
-  transform: rotate(10deg) scale(.78);
+  right: 5px;
+  top: 72px;
+  transform: rotate(18deg) scale(.78);
 }
 
-/* SEGUNDA FILA: flores juntas */
+/* CENTRO: 6 FLORES INTERCALADAS */
 .bat-bouquet .bat-flower.f6 {
-  right: 0;
-  top: 28px;
-  transform: rotate(18deg) scale(.72);
+  left: 2px;
+  top: 38px;
+  transform: rotate(-16deg) scale(.8);
 }
 
 .bat-bouquet .bat-flower.f7 {
-  left: 8px;
-  top: 53px;
-  transform: rotate(-16deg) scale(.78);
+  left: 39px;
+  top: 32px;
+  transform: rotate(-10deg) scale(.84);
 }
 
 .bat-bouquet .bat-flower.f8 {
-  left: 42px;
-  top: 40px;
-  transform: rotate(-9deg) scale(.82);
+  left: 75px;
+  top: 28px;
+  transform: rotate(-5deg) scale(.86);
 }
 
 .bat-bouquet .bat-flower.f9 {
   left: calc(50% - 33px);
-  top: 35px;
-  z-index: 6;
-  transform: scale(.86);
+  top: 25px;
+  z-index: 5;
+  transform: scale(.88);
 }
 
 .bat-bouquet .bat-flower.f10 {
-  right: 42px;
-  top: 40px;
-  transform: rotate(9deg) scale(.82);
+  right: 39px;
+  top: 32px;
+  transform: rotate(10deg) scale(.84);
 }
 
 .bat-bouquet .bat-flower.f11 {
-  right: 8px;
-  top: 53px;
-  transform: rotate(16deg) scale(.78);
+  right: 2px;
+  top: 38px;
+  transform: rotate(16deg) scale(.8);
 }
 
-/* TERCERA FILA */
+/* PARTE SUPERIOR: 7 FLORES */
 .bat-bouquet .bat-flower.f12 {
-  left: 17px;
-  top: 83px;
-  transform: rotate(-14deg) scale(.76);
+  left: 8px;
+  top: 5px;
+  transform: rotate(-18deg) scale(.78);
 }
 
 .bat-bouquet .bat-flower.f13 {
-  left: 49px;
-  top: 72px;
-  transform: rotate(-7deg) scale(.82);
+  left: 39px;
+  top: 0;
+  transform: rotate(-12deg) scale(.82);
 }
 
 .bat-bouquet .bat-flower.f14 {
-  left: calc(50% - 33px);
-  top: 67px;
-  z-index: 7;
-  transform: scale(.86);
+  left: 70px;
+  top: -4px;
+  transform: rotate(-6deg) scale(.84);
 }
 
 .bat-bouquet .bat-flower.f15 {
-  right: 49px;
-  top: 72px;
-  transform: rotate(7deg) scale(.82);
+  left: calc(50% - 33px);
+  top: -7px;
+  z-index: 8;
+  transform: scale(.88);
 }
 
 .bat-bouquet .bat-flower.f16 {
-  right: 17px;
-  top: 83px;
-  transform: rotate(14deg) scale(.76);
+  right: 70px;
+  top: -4px;
+  transform: rotate(6deg) scale(.84);
 }
 
-/* CUARTA FILA: base del ramo */
 .bat-bouquet .bat-flower.f17 {
-  left: 38px;
-  top: 108px;
-  transform: rotate(-11deg) scale(.72);
+  right: 39px;
+  top: 0;
+  transform: rotate(12deg) scale(.82);
 }
 
 .bat-bouquet .bat-flower.f18 {
-  left: 72px;
-  top: 100px;
-  transform: rotate(-5deg) scale(.76);
+  right: 8px;
+  top: 5px;
+  transform: rotate(18deg) scale(.78);
 }
 
+/* 2 FLORES EN EL CENTRO PARA RELLENAR HUECOS */
 .bat-bouquet .bat-flower.f19 {
-  left: calc(50% - 33px);
-  top: 96px;
-  z-index: 8;
-  transform: scale(.8);
+  left: calc(50% - 49px);
+  top: 20px;
+  z-index: 9;
+  transform: rotate(-5deg) scale(.84);
 }
 
 .bat-bouquet .bat-flower.f20 {
-  right: 38px;
-  top: 108px;
-  transform: rotate(11deg) scale(.72);
+  left: calc(50% - 17px);
+  top: 18px;
+  z-index: 10;
+  transform: rotate(5deg) scale(.84);
 }
 
-/* Papel y moño más cerca de los tallos */
+/* PAPEL ENVOLVIENDO LOS TALLOS */
 .bat-bouquet .bat-bouquet-paper {
   position: relative;
-  z-index: 10;
-  margin-top: -68px;
+  z-index: 11;
+  margin-top: -38px;
 }
 
-/* Ajuste para celulares pequeños */
 @media (max-width: 360px) {
   .bat-bouquet .bat-flower-heads {
     transform: scale(.88);
     transform-origin: top center;
-    margin-bottom: -32px;
+    margin-bottom: -28px;
   }
 }
+    
     
 
 
