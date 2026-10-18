@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -491,42 +490,95 @@
 }
 
 
-/* ===== PAPEL ENVOLVIENDO TODO EL RAMO ===== */
+
+/* ===== ENVOLTORIO DEL RAMO BATMAN ===== */
+
 .bat-bouquet .bat-bouquet-paper {
   position: relative;
-  z-index: 11;
+  z-index: 20;
   width: 100%;
-  margin-top: -5px;
-  min-height: 190px;
+  height: 180px;
+  margin-top: -35px;
   pointer-events: none;
 }
 
+/* Papel principal en forma de cono */
 .bat-bouquet .bat-paper-fold {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   top: 0;
-  width: 260px;
-  max-width: 95%;
+  transform: translateX(-50%);
+  width: 245px;
+  max-width: 90%;
+  height: 165px;
+  background: linear-gradient(
+    115deg,
+    #171923 0%,
+    #343442 28%,
+    #171923 52%,
+    #45404b 76%,
+    #171923 100%
+  );
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    88% 48%,
+    58% 83%,
+    50% 100%,
+    42% 83%,
+    12% 48%
+  );
+  border: 1px solid #c5a65b;
+  box-sizing: border-box;
 }
 
+/* Pliegue dorado del envoltorio */
+.bat-bouquet .bat-paper-fold::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 35%,
+    rgba(255, 215, 100, .25) 50%,
+    transparent 65%
+  );
+}
+
+/* Moño central */
 .bat-bouquet .bat-gold-ribbon {
   position: absolute;
-  z-index: 12;
+  z-index: 22;
   left: 50%;
+  top: 48px;
   transform: translateX(-50%);
-  top: 55px;
+  width: 66px;
+  height: 25px;
+  border: 2px solid #ffe08a;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff0a6, #c68a19, #ffe08a);
+  box-shadow: 0 0 12px rgba(255, 210, 80, .45);
 }
 
+.bat-bouquet .bat-gold-ribbon span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+}
+
+/* Ajuste para celulares */
 @media (max-width: 360px) {
   .bat-bouquet .bat-bouquet-paper {
-    margin-top: 0;
+    margin-top: -25px;
+  }
+
+  .bat-bouquet .bat-paper-fold {
+    width: 225px;
   }
 }
     
-    
-    
-
 
 /* Animaciones al entrar en la etapa 6 */
 
