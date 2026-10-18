@@ -841,188 +841,232 @@
   }
     
 
-/* RAMO BATMAN PARA ROSYTA */
+
+/* ===== RAMO BATMAN PARA ROSYTA: REDISEÑO ===== */
+
 .bat-bouquet-v2 {
   --bat-gold: #d9b45c;
-  position: relative;
   width: 100%;
   max-width: 350px;
-  margin: 28px auto;
-  padding: 22px 8px 20px;
+  margin: 30px auto 15px;
+  padding: 24px 8px 22px;
   overflow: hidden;
-  box-sizing: border-box;
   text-align: center;
-  border: 1px solid var(--bat-gold);
-  border-radius: 20px;
-  background: radial-gradient(ellipse at top, #29251c, #08090d 75%);
-  box-shadow: 0 12px 30px #0008;
+  border: 1px solid #b9974c;
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 50% 35%, #252319, transparent 65%),
+    linear-gradient(160deg, #101116, #050507);
+  box-shadow: 0 14px 35px #0009, 0 0 20px #d9b45c12;
 }
 
 .bat-bouquet-v2 .bat-bouquet-title {
-  color: #f7d98c;
+  margin-bottom: 0;
+  color: #ffe3a0;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 3px;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .bat-bouquet-title span {
   display: block;
-  font-size: 9px;
   color: #c9a44e;
+  font-size: 9px;
   letter-spacing: 4px;
 }
 
-.bat-flower-heads {
+/* Cabezas agrupadas como un ramo */
+.bat-bouquet-v2 .bat-flower-heads {
   position: relative;
   width: 290px;
   max-width: 100%;
-  height: 205px;
-  margin: 15px auto 0;
+  height: 225px;
+  margin: 12px auto 0;
 }
 
-.bat-flower {
+/* Cada máscara */
+.bat-bouquet-v2 .bat-flower {
   position: absolute;
   width: 72px;
-  height: 100px;
-  filter: drop-shadow(0 5px 5px #000);
+  height: 155px;
+  filter: drop-shadow(0 4px 4px #000);
 }
 
-.bat-flower .bat-cowl {
+/* Silueta de capucha con orejas puntiagudas */
+.bat-bouquet-v2 .bat-cowl {
   position: relative;
   width: 70px;
-  height: 83px;
+  height: 84px;
   overflow: hidden;
   border: 1px solid #716342;
-  border-radius: 43% 43% 40% 40%;
+  border-radius: 0;
   background:
-    radial-gradient(ellipse at 35% 20%, #4a4b50, transparent 40%),
-    linear-gradient(135deg, #292a2e, #070709 72%);
+    radial-gradient(ellipse at 36% 28%, #55565b 0%, transparent 34%),
+    linear-gradient(110deg, #303137 0%, #111216 42%, #050507 78%);
   clip-path: polygon(
-    0 20%, 20% 23%, 28% 0, 43% 20%,
-    57% 20%, 72% 0, 80% 23%, 100% 20%,
-    89% 70%, 72% 89%, 50% 100%,
-    28% 89%, 11% 70%
+    0 19%, 17% 15%, 25% 0,
+    38% 23%, 62% 23%, 75% 0,
+    83% 15%, 100% 19%,
+    89% 66%, 73% 85%, 50% 100%,
+    27% 85%, 11% 66%
   );
 }
 
-.bat-cowl i,
-.bat-cowl b {
+/* Detalle de la frente */
+.bat-bouquet-v2 .bat-cowl::before {
+  content: "";
   position: absolute;
-  top: 43px;
+  top: 22px;
+  left: 15px;
+  width: 40px;
+  height: 23px;
+  background: linear-gradient(180deg, #45464b, #17181c);
+  clip-path: polygon(
+    0 0, 50% 22%, 100% 0, 82% 75%,
+    50% 100%, 18% 75%
+  );
+}
+
+/* Ojos blancos, estrechos y angulados */
+.bat-bouquet-v2 .bat-cowl i,
+.bat-bouquet-v2 .bat-cowl b {
+  position: absolute;
+  z-index: 2;
+  top: 42px;
   display: block;
   width: 22px;
   height: 9px;
-  background: #f5f0d9;
-  box-shadow: 0 0 8px #fff4c8;
+  background: linear-gradient(180deg, #fffef5, #c9c8c0);
+  box-shadow: 0 0 5px #fff8d9;
 }
 
-.bat-cowl i {
+.bat-bouquet-v2 .bat-cowl i {
   left: 7px;
-  clip-path: polygon(0 0, 100% 20%, 70% 100%, 20% 70%);
+  clip-path: polygon(0 0, 100% 20%, 72% 100%, 20% 72%);
 }
 
-.bat-cowl b {
+.bat-bouquet-v2 .bat-cowl b {
   right: 7px;
-  clip-path: polygon(0 20%, 100% 0, 80% 70%, 30% 100%);
+  clip-path: polygon(0 20%, 100% 0, 80% 72%, 28% 100%);
 }
 
-.bat-cowl em {
+/* Parte inferior de la máscara */
+.bat-bouquet-v2 .bat-cowl em {
   position: absolute;
+  z-index: 2;
   left: 17px;
-  bottom: 8px;
+  bottom: 7px;
   width: 36px;
-  height: 21px;
-  background: linear-gradient(145deg, #303136, #080809);
-  border-top: 1px solid #776747;
-  clip-path: polygon(0 0, 50% 25%, 100% 0, 80% 80%, 50% 100%, 20% 80%);
+  height: 22px;
+  border-top: 1px solid #716342;
+  background: linear-gradient(145deg, #292a2f, #070708);
+  clip-path: polygon(
+    0 0, 50% 22%, 100% 0,
+    80% 78%, 50% 100%, 20% 78%
+  );
 }
 
-.bat-flower::after {
+/* Tallos largos que convergen hacia el papel */
+.bat-bouquet-v2 .bat-flower::after {
   content: "";
   position: absolute;
   z-index: -1;
+  top: 72px;
   left: 34px;
-  top: 78px;
   width: 3px;
-  height: 110px;
-  background: linear-gradient(#82703c, #272719);
+  height: 112px;
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg, #8d7844, #4b4229 60%, #17170f
+  );
 }
 
-.bat-flower.f1 {
-  left: 6px;
-  top: 62px;
-  transform: rotate(-20deg) scale(.86);
+/* Distribución de las siete máscaras */
+.bat-bouquet-v2 .bat-flower.f1 {
+  left: 0;
+  top: 82px;
+  transform: rotate(-16deg) scale(.82);
 }
 
-.bat-flower.f2 {
-  left: 44px;
-  top: 20px;
-  transform: rotate(-10deg) scale(.94);
+.bat-bouquet-v2 .bat-flower.f2 {
+  left: 35px;
+  top: 35px;
+  transform: rotate(-9deg) scale(.91);
 }
 
-.bat-flower.f3 {
-  left: 82px;
-  top: 4px;
-  transform: rotate(-4deg);
+.bat-bouquet-v2 .bat-flower.f3 {
+  left: 76px;
+  top: 7px;
+  transform: rotate(-3deg);
 }
 
-.bat-flower.f4 {
-  left: 110px;
-  top: 51px;
-  z-index: 4;
-  transform: scale(1.08);
-}
-
-.bat-flower.f5 {
-  right: 44px;
-  top: 20px;
-  transform: rotate(10deg) scale(.94);
-}
-
-.bat-flower.f6 {
-  right: 6px;
-  top: 62px;
-  transform: rotate(20deg) scale(.86);
-}
-
-.bat-flower.f7 {
+.bat-bouquet-v2 .bat-flower.f4 {
   left: calc(50% - 36px);
-  top: 95px;
+  top: 40px;
+  z-index: 4;
+  transform: scale(1.03);
+}
+
+.bat-bouquet-v2 .bat-flower.f5 {
+  right: 35px;
+  top: 35px;
+  transform: rotate(9deg) scale(.91);
+}
+
+.bat-bouquet-v2 .bat-flower.f6 {
+  right: 0;
+  top: 82px;
+  transform: rotate(16deg) scale(.82);
+}
+
+.bat-bouquet-v2 .bat-flower.f7 {
+  left: calc(50% - 36px);
+  top: 99px;
   z-index: 5;
   transform: scale(.78);
 }
 
-.bat-bouquet-paper {
+/* Envoltura negra con bordes dorados */
+.bat-bouquet-v2 .bat-bouquet-paper {
   position: relative;
   z-index: 6;
   width: 245px;
   max-width: 90%;
-  height: 110px;
-  margin: -9px auto 0;
+  height: 112px;
+  margin: -3px auto 0;
   border: 1px solid #c5a04d;
   background:
-    linear-gradient(105deg, #050506 5%, #302b20 25%, #09090b 50%, #302b20 75%, #050506);
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 50% 78%, 20% 100%);
+    linear-gradient(
+      78deg,
+      #070709 0%, #28251c 22%,
+      #0a0a0c 43%, #262116 67%,
+      #060607 100%
+    );
+  clip-path: polygon(
+    0 0, 100% 0, 79% 100%,
+    50% 78%, 21% 100%
+  );
 }
 
-.bat-paper-fold {
+.bat-bouquet-v2 .bat-paper-fold {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     75deg,
-    transparent 30%,
-    #c5a04d35 31%,
-    transparent 43%,
-    transparent 60%,
-    #c5a04d25 61%,
-    transparent 76%
+    transparent 28%,
+    #d9b45c35 30%,
+    transparent 40%,
+    transparent 61%,
+    #d9b45c25 63%,
+    transparent 75%
   );
 }
 
-.bat-gold-ribbon {
+/* Broche dorada */
+.bat-bouquet-v2 .bat-gold-ribbon {
   position: absolute;
-  top: 14px;
+  top: 15px;
   left: 50%;
   display: grid;
   place-items: center;
@@ -1031,15 +1075,17 @@
   transform: translateX(-50%);
   border: 1px solid #e6c46e;
   border-radius: 7px;
-  background: #111;
+  background: #111116;
   font-size: 21px;
 }
 
+/* Dedicatoria */
 .bat-bouquet-v2 .bat-bouquet-message {
-  margin: 14px 6px 8px;
+  margin: 15px 6px 8px;
   color: #f5e4b7;
   font-family: Georgia, serif;
   font-size: 16px;
+  line-height: 1.6;
 }
 
 .bat-bouquet-v2 .bat-bouquet-name {
@@ -1047,8 +1093,24 @@
   color: #f5c451;
   font-size: 13px;
   font-weight: bold;
- 
 }
+
+@media (max-width: 360px) {
+  .bat-bouquet-v2 {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .bat-bouquet-v2 .bat-flower-heads {
+    transform: scale(.94);
+    transform-origin: top center;
+    margin-bottom: -13px;
+  }
+  }
+    
+
+
+
     
     
   </style>
