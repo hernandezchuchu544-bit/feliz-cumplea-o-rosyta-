@@ -866,25 +866,29 @@
     
 
 
-/* ===== RAMO BATMAN PARA ROSYTA: REDISEÑO ===== */
+/* ===== RAMO BATMAN PARA ROSYTA: NUEVO DISEÑO ===== */
 
 .bat-bouquet-v2 {
-  --bat-gold: #d9b45c;
+  --bat-gold: #e4bd5b;
+  position: relative;
   width: 100%;
   max-width: 350px;
   margin: 30px auto 15px;
-  padding: 24px 8px 22px;
+  padding: 22px 6px 22px;
   overflow: hidden;
+  box-sizing: border-box;
   text-align: center;
-  border: 1px solid #b9974c;
+  border: 1px solid #9e813f;
   border-radius: 18px;
   background:
-    radial-gradient(ellipse at 50% 35%, #252319, transparent 65%),
-    linear-gradient(160deg, #101116, #050507);
-  box-shadow: 0 14px 35px #0009, 0 0 20px #d9b45c12;
+    radial-gradient(ellipse at 50% 25%, #292719, transparent 65%),
+    linear-gradient(160deg, #111116, #050507);
+  box-shadow: 0 14px 35px #0009, 0 0 20px #d9b45c18;
 }
 
 .bat-bouquet-v2 .bat-bouquet-title {
+  position: relative;
+  z-index: 8;
   margin-bottom: 0;
   color: #ffe3a0;
   font-size: 12px;
@@ -893,219 +897,243 @@
   line-height: 1.9;
 }
 
-.bat-bouquet-title span {
+.bat-bouquet-v2 .bat-bouquet-title span {
   display: block;
   color: #c9a44e;
   font-size: 9px;
   letter-spacing: 4px;
 }
 
-/* Cabezas agrupadas como un ramo */
+/* Zona donde se agrupan las siete cabezas */
 .bat-bouquet-v2 .bat-flower-heads {
   position: relative;
   width: 290px;
   max-width: 100%;
-  height: 225px;
-  margin: 12px auto 0;
+  height: 245px;
+  margin: 10px auto 0;
 }
 
-/* Cada máscara */
+/* Cada flor tiene forma de máscara */
 .bat-bouquet-v2 .bat-flower {
   position: absolute;
-  width: 72px;
-  height: 155px;
-  filter: drop-shadow(0 4px 4px #000);
+  width: 66px;
+  height: 180px;
+  filter: drop-shadow(0 3px 3px #000);
 }
 
-/* Silueta de capucha con orejas puntiagudas */
+/* Capucha: orejas puntiagudas y mandíbula angulada */
 .bat-bouquet-v2 .bat-cowl {
   position: relative;
-  width: 70px;
-  height: 84px;
+  width: 64px;
+  height: 78px;
   overflow: hidden;
-  border: 1px solid #716342;
+  border: 0;
   border-radius: 0;
   background:
-    radial-gradient(ellipse at 36% 28%, #55565b 0%, transparent 34%),
-    linear-gradient(110deg, #303137 0%, #111216 42%, #050507 78%);
+    radial-gradient(ellipse at 38% 27%, #484950 0%, transparent 35%),
+    linear-gradient(110deg, #34353b, #15161b 55%, #030304);
   clip-path: polygon(
-    0 19%, 17% 15%, 25% 0,
-    38% 23%, 62% 23%, 75% 0,
-    83% 15%, 100% 19%,
-    89% 66%, 73% 85%, 50% 100%,
-    27% 85%, 11% 66%
+    4% 22%,
+    24% 15%,
+    31% 0%,
+    43% 21%,
+    57% 21%,
+    69% 0%,
+    76% 15%,
+    96% 22%,
+    86% 65%,
+    70% 84%,
+    50% 100%,
+    30% 84%,
+    14% 65%
   );
 }
 
-/* Detalle de la frente */
+/* Ceja y frente */
 .bat-bouquet-v2 .bat-cowl::before {
   content: "";
   position: absolute;
   top: 22px;
-  left: 15px;
+  left: 12px;
   width: 40px;
-  height: 23px;
-  background: linear-gradient(180deg, #45464b, #17181c);
+  height: 18px;
+  background: linear-gradient(180deg, #414249, #17181c);
   clip-path: polygon(
-    0 0, 50% 22%, 100% 0, 82% 75%,
-    50% 100%, 18% 75%
+    0 0, 40% 24%, 50% 38%,
+    60% 24%, 100% 0,
+    82% 72%, 50% 100%, 18% 72%
   );
 }
 
-/* Ojos blancos, estrechos y angulados */
+/* Ojos blancos, estrechos e inclinados */
 .bat-bouquet-v2 .bat-cowl i,
 .bat-bouquet-v2 .bat-cowl b {
   position: absolute;
-  z-index: 2;
-  top: 42px;
+  z-index: 3;
+  top: 39px;
   display: block;
-  width: 22px;
+  width: 21px;
   height: 9px;
-  background: linear-gradient(180deg, #fffef5, #c9c8c0);
-  box-shadow: 0 0 5px #fff8d9;
+  background: #fffdf1;
+  box-shadow: 0 0 5px #fff4bd80;
 }
 
 .bat-bouquet-v2 .bat-cowl i {
   left: 7px;
-  clip-path: polygon(0 0, 100% 20%, 72% 100%, 20% 72%);
+  clip-path: polygon(
+    0 0, 100% 25%, 68% 100%, 20% 75%
+  );
 }
 
 .bat-bouquet-v2 .bat-cowl b {
   right: 7px;
-  clip-path: polygon(0 20%, 100% 0, 80% 72%, 28% 100%);
+  clip-path: polygon(
+    0 25%, 100% 0, 80% 75%, 32% 100%
+  );
 }
 
-/* Parte inferior de la máscara */
+/* Zona inferior de la máscara */
 .bat-bouquet-v2 .bat-cowl em {
   position: absolute;
   z-index: 2;
   left: 17px;
-  bottom: 7px;
-  width: 36px;
-  height: 22px;
-  border-top: 1px solid #716342;
-  background: linear-gradient(145deg, #292a2f, #070708);
+  bottom: 6px;
+  width: 30px;
+  height: 19px;
+  background: linear-gradient(145deg, #292a30, #080809);
+  border-top: 1px solid #55545a;
   clip-path: polygon(
-    0 0, 50% 22%, 100% 0,
-    80% 78%, 50% 100%, 20% 78%
+    0 0, 50% 24%, 100% 0,
+    78% 75%, 50% 100%, 22% 75%
   );
 }
 
-/* Tallos largos que convergen hacia el papel */
+/* Tallos largos, visibles debajo de las máscaras */
 .bat-bouquet-v2 .bat-flower::after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 72px;
-  left: 34px;
+  top: 65px;
+  left: 32px;
   width: 3px;
-  height: 112px;
+  height: 125px;
   border-radius: 3px;
   background: linear-gradient(
-    180deg, #8d7844, #4b4229 60%, #17170f
+    180deg, #b49a52, #686039 55%, #282719
   );
 }
 
-/* Distribución de las siete máscaras */
+/* Distribución en forma de abanico */
 .bat-bouquet-v2 .bat-flower.f1 {
-  left: 0;
-  top: 82px;
-  transform: rotate(-16deg) scale(.82);
+  left: 1px;
+  top: 84px;
+  transform: rotate(-17deg) scale(.82);
 }
 
 .bat-bouquet-v2 .bat-flower.f2 {
-  left: 35px;
-  top: 35px;
-  transform: rotate(-9deg) scale(.91);
+  left: 32px;
+  top: 37px;
+  transform: rotate(-10deg) scale(.92);
 }
 
 .bat-bouquet-v2 .bat-flower.f3 {
-  left: 76px;
-  top: 7px;
-  transform: rotate(-3deg);
+  left: 70px;
+  top: 8px;
+  transform: rotate(-4deg);
 }
 
 .bat-bouquet-v2 .bat-flower.f4 {
-  left: calc(50% - 36px);
-  top: 40px;
+  left: calc(50% - 33px);
+  top: 29px;
   z-index: 4;
-  transform: scale(1.03);
+  transform: scale(1.06);
 }
 
 .bat-bouquet-v2 .bat-flower.f5 {
-  right: 35px;
-  top: 35px;
-  transform: rotate(9deg) scale(.91);
+  right: 32px;
+  top: 37px;
+  transform: rotate(10deg) scale(.92);
 }
 
 .bat-bouquet-v2 .bat-flower.f6 {
-  right: 0;
-  top: 82px;
-  transform: rotate(16deg) scale(.82);
+  right: 1px;
+  top: 84px;
+  transform: rotate(17deg) scale(.82);
 }
 
 .bat-bouquet-v2 .bat-flower.f7 {
-  left: calc(50% - 36px);
-  top: 99px;
+  left: calc(50% - 33px);
+  top: 104px;
   z-index: 5;
   transform: scale(.78);
 }
 
-/* Envoltura negra con bordes dorados */
+/* Papel de envoltura: ancho arriba, estrecho abajo */
 .bat-bouquet-v2 .bat-bouquet-paper {
   position: relative;
   z-index: 6;
-  width: 245px;
-  max-width: 90%;
-  height: 112px;
-  margin: -3px auto 0;
-  border: 1px solid #c5a04d;
+  width: 260px;
+  max-width: 94%;
+  height: 135px;
+  margin: -65px auto 0;
+  box-sizing: border-box;
   background:
     linear-gradient(
-      78deg,
-      #070709 0%, #28251c 22%,
-      #0a0a0c 43%, #262116 67%,
-      #060607 100%
+      90deg,
+      #08080a 0%,
+      #29251a 20%,
+      #111116 40%,
+      #30291b 60%,
+      #111116 80%,
+      #050506 100%
     );
   clip-path: polygon(
-    0 0, 100% 0, 79% 100%,
-    50% 78%, 21% 100%
+    0 0, 100% 0,
+    88% 48%, 67% 83%,
+    55% 100%, 45% 100%,
+    33% 83%, 12% 48%
   );
 }
 
+/* Pliegues dorados del papel */
 .bat-bouquet-v2 .bat-paper-fold {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     75deg,
-    transparent 28%,
-    #d9b45c35 30%,
-    transparent 40%,
-    transparent 61%,
-    #d9b45c25 63%,
-    transparent 75%
+    transparent 17%,
+    #d9b45c45 19%,
+    transparent 29%,
+    transparent 43%,
+    #0008 45%,
+    transparent 52%,
+    transparent 70%,
+    #d9b45c30 72%,
+    transparent 82%
   );
 }
 
-/* Broche dorada */
+/* Moño en la parte estrecha del envoltorio */
 .bat-bouquet-v2 .bat-gold-ribbon {
   position: absolute;
-  top: 15px;
+  top: 76px;
   left: 50%;
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 35px;
+  width: 44px;
+  height: 30px;
   transform: translateX(-50%);
-  border: 1px solid #e6c46e;
-  border-radius: 7px;
-  background: #111116;
+  border: 1px solid #f1d17b;
+  border-radius: 5px;
+  background: #17140d;
+  box-shadow: 0 0 8px #0008;
   font-size: 21px;
 }
 
-/* Dedicatoria */
 .bat-bouquet-v2 .bat-bouquet-message {
-  margin: 15px 6px 8px;
+  position: relative;
+  z-index: 7;
+  margin: 14px 6px 8px;
   color: #f5e4b7;
   font-family: Georgia, serif;
   font-size: 16px;
@@ -1113,6 +1141,8 @@
 }
 
 .bat-bouquet-v2 .bat-bouquet-name {
+  position: relative;
+  z-index: 7;
   display: block;
   color: #f5c451;
   font-size: 13px;
@@ -1121,20 +1151,16 @@
 
 @media (max-width: 360px) {
   .bat-bouquet-v2 {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 4px;
+    padding-left: 4px;
   }
 
   .bat-bouquet-v2 .bat-flower-heads {
-    transform: scale(.94);
+    transform: scale(.9);
     transform-origin: top center;
-    margin-bottom: -13px;
+    margin-bottom: -24px;
   }
   }
-    
-
-
-
     
     
   </style>
