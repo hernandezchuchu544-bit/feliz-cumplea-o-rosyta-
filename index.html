@@ -453,78 +453,36 @@
           </p>
           <div class="bat-divider">🦇 ✦ 🦇</div>
           
-<div class="bat-bouquet">
+
+<div class="bat-bouquet bat-bouquet-v2">
   <div class="bat-bouquet-title">
-    🦇 RAMO DE GOTHAM 🦇
+    PARA MI HEROÍNA
+    <span>✦ GOTHAM CITY ✦</span>
   </div>
 
-  <div class="bat-mask-bouquet">
-    <div class="mask-stem">
-      <div class="bat-mask-face">
-        <div class="bat-ears"></div>
-        <div class="bat-eyes">
-          <i></i><i></i>
-        </div>
-        <div class="bat-mouth"></div>
-      </div>
-    </div>
-
-    <div class="mask-stem">
-      <div class="bat-mask-face">
-        <div class="bat-ears"></div>
-        <div class="bat-eyes">
-          <i></i><i></i>
-        </div>
-        <div class="bat-mouth"></div>
-      </div>
-    </div>
-
-    <div class="mask-stem mask-center">
-      <div class="bat-mask-face">
-        <div class="bat-ears"></div>
-        <div class="bat-eyes">
-          <i></i><i></i>
-        </div>
-        <div class="bat-mouth"></div>
-      </div>
-    </div>
-
-    <div class="mask-stem">
-      <div class="bat-mask-face">
-        <div class="bat-ears"></div>
-        <div class="bat-eyes">
-          <i></i><i></i>
-        </div>
-        <div class="bat-mouth"></div>
-      </div>
-    </div>
-
-    <div class="mask-stem">
-      <div class="bat-mask-face">
-        <div class="bat-ears"></div>
-        <div class="bat-eyes">
-          <i></i><i></i>
-        </div>
-        <div class="bat-mouth"></div>
-      </div>
-    </div>
+  <div class="bat-flower-heads">
+    <div class="bat-flower f1"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
+    <div class="bat-flower f2"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
+    <div class="bat-flower f3"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
+    <div class="bat-flower f4"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
+    <div class="bat-flower f5"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
+    <div class="bat-flower f6"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
+    <div class="bat-flower f7"><div class="bat-cowl"><i></i><b></b><em></em></div></div>
   </div>
 
-  <div class="bat-bouquet-wrap">
-    <div class="bat-bouquet-ribbon"></div>
+  <div class="bat-bouquet-paper">
+    <div class="bat-paper-fold"></div>
+    <div class="bat-gold-ribbon">🦇</div>
   </div>
 
-  <div class="bat-bouquet-bats">✦ 🦇 ✦ 🦇 ✦</div>
-
-  <p>Un ramo especial para mi heroína favorita</p>
-  <span class="bat-dedication">Para Rosyta Ojos Lindos 💛</span>
-</div>
-          
-  <p>Un ramo digno de mi heroína favorita</p>
-  <span class="bat-dedication">
-    Para Rosyta Ojos Lindos 💛
+  <p class="bat-bouquet-message">
+    Para la heroína que ilumina mi mundo.
+  </p>
+  <span class="bat-bouquet-name">
+    Rosyta Ojos Lindos 💛
   </span>
 </div>
+          
           
           
         </article>
@@ -883,6 +841,214 @@
   }
     
 
+/* RAMO BATMAN PARA ROSYTA */
+.bat-bouquet-v2 {
+  --bat-gold: #d9b45c;
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 28px auto;
+  padding: 22px 8px 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid var(--bat-gold);
+  border-radius: 20px;
+  background: radial-gradient(ellipse at top, #29251c, #08090d 75%);
+  box-shadow: 0 12px 30px #0008;
+}
+
+.bat-bouquet-v2 .bat-bouquet-title {
+  color: #f7d98c;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  line-height: 1.8;
+}
+
+.bat-bouquet-title span {
+  display: block;
+  font-size: 9px;
+  color: #c9a44e;
+  letter-spacing: 4px;
+}
+
+.bat-flower-heads {
+  position: relative;
+  width: 290px;
+  max-width: 100%;
+  height: 205px;
+  margin: 15px auto 0;
+}
+
+.bat-flower {
+  position: absolute;
+  width: 72px;
+  height: 100px;
+  filter: drop-shadow(0 5px 5px #000);
+}
+
+.bat-flower .bat-cowl {
+  position: relative;
+  width: 70px;
+  height: 83px;
+  overflow: hidden;
+  border: 1px solid #716342;
+  border-radius: 43% 43% 40% 40%;
+  background:
+    radial-gradient(ellipse at 35% 20%, #4a4b50, transparent 40%),
+    linear-gradient(135deg, #292a2e, #070709 72%);
+  clip-path: polygon(
+    0 20%, 20% 23%, 28% 0, 43% 20%,
+    57% 20%, 72% 0, 80% 23%, 100% 20%,
+    89% 70%, 72% 89%, 50% 100%,
+    28% 89%, 11% 70%
+  );
+}
+
+.bat-cowl i,
+.bat-cowl b {
+  position: absolute;
+  top: 43px;
+  display: block;
+  width: 22px;
+  height: 9px;
+  background: #f5f0d9;
+  box-shadow: 0 0 8px #fff4c8;
+}
+
+.bat-cowl i {
+  left: 7px;
+  clip-path: polygon(0 0, 100% 20%, 70% 100%, 20% 70%);
+}
+
+.bat-cowl b {
+  right: 7px;
+  clip-path: polygon(0 20%, 100% 0, 80% 70%, 30% 100%);
+}
+
+.bat-cowl em {
+  position: absolute;
+  left: 17px;
+  bottom: 8px;
+  width: 36px;
+  height: 21px;
+  background: linear-gradient(145deg, #303136, #080809);
+  border-top: 1px solid #776747;
+  clip-path: polygon(0 0, 50% 25%, 100% 0, 80% 80%, 50% 100%, 20% 80%);
+}
+
+.bat-flower::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 34px;
+  top: 78px;
+  width: 3px;
+  height: 110px;
+  background: linear-gradient(#82703c, #272719);
+}
+
+.bat-flower.f1 {
+  left: 6px;
+  top: 62px;
+  transform: rotate(-20deg) scale(.86);
+}
+
+.bat-flower.f2 {
+  left: 44px;
+  top: 20px;
+  transform: rotate(-10deg) scale(.94);
+}
+
+.bat-flower.f3 {
+  left: 82px;
+  top: 4px;
+  transform: rotate(-4deg);
+}
+
+.bat-flower.f4 {
+  left: 110px;
+  top: 51px;
+  z-index: 4;
+  transform: scale(1.08);
+}
+
+.bat-flower.f5 {
+  right: 44px;
+  top: 20px;
+  transform: rotate(10deg) scale(.94);
+}
+
+.bat-flower.f6 {
+  right: 6px;
+  top: 62px;
+  transform: rotate(20deg) scale(.86);
+}
+
+.bat-flower.f7 {
+  left: calc(50% - 36px);
+  top: 95px;
+  z-index: 5;
+  transform: scale(.78);
+}
+
+.bat-bouquet-paper {
+  position: relative;
+  z-index: 6;
+  width: 245px;
+  max-width: 90%;
+  height: 110px;
+  margin: -9px auto 0;
+  border: 1px solid #c5a04d;
+  background:
+    linear-gradient(105deg, #050506 5%, #302b20 25%, #09090b 50%, #302b20 75%, #050506);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 50% 78%, 20% 100%);
+}
+
+.bat-paper-fold {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    75deg,
+    transparent 30%,
+    #c5a04d35 31%,
+    transparent 43%,
+    transparent 60%,
+    #c5a04d25 61%,
+    transparent 76%
+  );
+}
+
+.bat-gold-ribbon {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 35px;
+  transform: translateX(-50%);
+  border: 1px solid #e6c46e;
+  border-radius: 7px;
+  background: #111;
+  font-size: 21px;
+}
+
+.bat-bouquet-v2 .bat-bouquet-message {
+  margin: 14px 6px 8px;
+  color: #f5e4b7;
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+
+.bat-bouquet-v2 .bat-bouquet-name {
+  display: block;
+  color: #f5c451;
+  font-size: 13px;
+  font-weight: bold;
+    }
+    
     
   </style>
 
