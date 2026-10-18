@@ -135,46 +135,34 @@
     .footer { position: relative; z-index: 1; padding: 16px 10px 24px; color: #93815a; text-align: center; font-size: 10px; letter-spacing: 2px; }
     .footer span { color: #f5c451; }
 
-/* ===== RAMO BATMAN: NUEVO DISEÑO ===== */
 
-.bouquet-card {
-  border-color: #d9ae4d75;
-}
+/* ===== RAMO BATMAN: EDICIÓN GOTHAM ===== */
 
 .bat-bouquet {
   --bat-gold: #f5c451;
-  --bat-gold-light: #ffe7a0;
+  --bat-light: #ffe9a6;
 
   position: relative;
   isolation: isolate;
   width: 100%;
   max-width: 350px;
   margin: 25px auto 18px;
-  padding: 23px 8px 20px;
-  overflow: hidden;
+  padding: 24px 8px 22px;
   box-sizing: border-box;
+  overflow: hidden;
   text-align: center;
-
-  border: 1px solid #c49a42;
-  border-radius: 22px;
+  border: 1px solid #d5ad52;
+  border-radius: 24px;
 
   background:
-    radial-gradient(
-      ellipse at 50% 20%,
-      #49371a 0%,
-      transparent 52%
-    ),
-    linear-gradient(
-      160deg,
-      #171720 0%,
-      #08090e 65%,
-      #17120b 100%
-    );
+    radial-gradient(ellipse at 50% 32%, #6a4a1e55, transparent 58%),
+    radial-gradient(ellipse at 50% 100%, #30200c88, transparent 55%),
+    linear-gradient(155deg, #191923, #07080d 65%, #191208);
 
   box-shadow:
-    0 15px 35px #0009,
-    inset 0 0 30px #f5c45108,
-    0 0 22px #d9aa3520;
+    0 18px 40px #0009,
+    inset 0 0 25px #f5c4510b,
+    0 0 24px #f5c45120;
 }
 
 .bat-bouquet::before {
@@ -183,100 +171,96 @@
   z-index: -1;
   inset: 0;
   pointer-events: none;
-
+  opacity: .5;
   background:
-    radial-gradient(
-      circle at 50% 35%,
-      #ffe7a015,
-      transparent 55%
-    );
+    linear-gradient(115deg, transparent 25%, #ffe9a60b 50%, transparent 75%);
 }
 
-.bouquet-moon {
+.bat-bouquet .bouquet-moon {
   position: absolute;
   z-index: -1;
-  top: 65px;
+  top: 75px;
   left: 50%;
-  width: 145px;
-  height: 145px;
+  width: 150px;
+  height: 150px;
   transform: translateX(-50%);
   border-radius: 50%;
-
   background: #f5c451;
-  opacity: .12;
+  opacity: .17;
   filter: blur(38px);
 }
 
-.bouquet-heading {
+.bat-bouquet .bouquet-heading {
   position: relative;
   z-index: 8;
-  color: var(--bat-gold-light);
-  font-size: 12px;
+  color: var(--bat-light);
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 3px;
   line-height: 1.9;
+  text-shadow: 0 0 14px #f5c45135;
 }
 
-.bouquet-heading small {
+.bat-bouquet .bouquet-heading small {
   display: block;
-  color: #c9a44e;
+  color: #d6b45f;
   font-size: 9px;
   letter-spacing: 4px;
 }
 
-.bouquet-sparkles {
+.bat-bouquet .bouquet-sparkles {
   position: absolute;
-  inset: 65px 0 auto;
+  z-index: 2;
+  inset: 70px 0 auto;
   height: 180px;
   pointer-events: none;
-  color: #ffe7a0;
+  color: var(--bat-light);
 }
 
-.bouquet-sparkles i {
+.bat-bouquet .bouquet-sparkles i {
   position: absolute;
-  font-size: 15px;
   font-style: normal;
-  animation: sparkleFloat 2.5s ease-in-out infinite alternate;
+  font-size: 15px;
+  text-shadow: 0 0 12px #f5c451;
+  animation: batSparkle 2.4s ease-in-out infinite alternate;
 }
 
-.bouquet-sparkles i:nth-child(1) {
-  top: 30px;
-  left: 12%;
+.bat-bouquet .bouquet-sparkles i:nth-child(1) {
+  left: 9%;
+  top: 32%;
 }
 
-.bouquet-sparkles i:nth-child(2) {
-  top: 75px;
-  left: 6%;
+.bat-bouquet .bouquet-sparkles i:nth-child(2) {
+  left: 23%;
+  top: 4%;
   animation-delay: .5s;
 }
 
-.bouquet-sparkles i:nth-child(3) {
-  top: 15px;
-  right: 12%;
+.bat-bouquet .bouquet-sparkles i:nth-child(3) {
+  right: 10%;
+  top: 25%;
   animation-delay: .8s;
 }
 
-.bouquet-sparkles i:nth-child(4) {
-  top: 100px;
-  right: 8%;
+.bat-bouquet .bouquet-sparkles i:nth-child(4) {
+  right: 23%;
+  top: 4%;
   animation-delay: .3s;
 }
 
-.bouquet-sparkles i:nth-child(5) {
-  top: 130px;
-  left: 20%;
+.bat-bouquet .bouquet-sparkles i:nth-child(5) {
+  left: 17%;
+  top: 65%;
   animation-delay: 1s;
 }
 
-.bouquet-sparkles i:nth-child(6) {
-  top: 120px;
-  right: 22%;
-  animation-delay: 1.3s;
+.bat-bouquet .bouquet-sparkles i:nth-child(6) {
+  right: 17%;
+  top: 65%;
+  animation-delay: .7s;
 }
 
-/* Distribución de las siete flores */
-
-.bat-flower-heads {
+.bat-bouquet .bat-flower-heads {
   position: relative;
   z-index: 3;
   width: 290px;
@@ -285,143 +269,67 @@
   margin: 12px auto 0;
 }
 
-.bat-flower {
+.bat-bouquet .bat-flower {
   position: absolute;
   width: 66px;
   height: 180px;
   transform-origin: top center;
-  filter: drop-shadow(0 5px 5px #000b);
+  filter: drop-shadow(0 5px 6px #000b);
 }
 
-.bat-cowl {
+.bat-bouquet .bat-cowl {
   position: relative;
   width: 64px;
   height: 78px;
   overflow: hidden;
 
   background:
-    radial-gradient(
-      ellipse at 38% 25%,
-      #5c5d65 0%,
-      transparent 36%
-    ),
-    linear-gradient(
-      110deg,
-      #45464f,
-      #202128 55%,
-      #050507
-    );
+    radial-gradient(ellipse at 38% 22%, #888994 0%, transparent 35%),
+    linear-gradient(110deg, #555660, #24252d 52%, #050507);
 
   clip-path: polygon(
-    4% 22%,
-    24% 15%,
-    31% 0%,
-    43% 21%,
-    57% 21%,
-    69% 0%,
-    76% 15%,
-    96% 22%,
-    86% 65%,
-    70% 84%,
-    50% 100%,
-    30% 84%,
-    14% 65%
+    4% 22%, 24% 15%, 31% 0%, 43% 21%,
+    57% 21%, 69% 0%, 76% 15%, 96% 22%,
+    86% 65%, 70% 84%, 50% 100%, 30% 84%, 14% 65%
   );
 
-  filter:
-    drop-shadow(0 0 2px #a6a6ac55);
+  filter: drop-shadow(0 0 3px #f5c45140);
 }
 
-.bat-cowl::before {
+.bat-bouquet .bat-cowl::before {
   content: "";
   position: absolute;
   top: 22px;
   left: 12px;
   width: 40px;
   height: 18px;
-
-  background: linear-gradient(
-    180deg,
-    #555660,
-    #17181d
-  );
+  background: linear-gradient(180deg, #656570, #17181d);
 
   clip-path: polygon(
-    0 0,
-    40% 24%,
-    50% 38%,
-    60% 24%,
-    100% 0,
-    82% 72%,
-    50% 100%,
-    18% 72%
+    0 0, 40% 24%, 50% 38%, 60% 24%,
+    100% 0, 82% 72%, 50% 100%, 18% 72%
   );
 }
 
-.bat-cowl i,
-.bat-cowl b {
-  position: absolute;
-  z-index: 3;
-  top: 39px;
-  display: block;
-  width: 21px;
-  height: 9px;
-
-  background: #fffdf1;
-  box-shadow: 0 0 8px #fff4bd99;
-}
-
-.bat-cowl i {
-  left: 7px;
-
-  clip-path: polygon(
-    0 0,
-    100% 25%,
-    68% 100%,
-    20% 75%
-  );
-}
-
-.bat-cowl b {
-  right: 7px;
-
-  clip-path: polygon(
-    0 25%,
-    100% 0,
-    80% 75%,
-    32% 100%
-  );
-}
-
-.bat-cowl em {
+.bat-bouquet .bat-cowl em {
   position: absolute;
   z-index: 2;
   left: 17px;
   bottom: 6px;
   width: 30px;
   height: 19px;
-
-  background: linear-gradient(
-    145deg,
-    #292a30,
-    #080809
-  );
-
-  border-top: 1px solid #55545a;
+  background: linear-gradient(145deg, #33343b, #080809);
+  border-top: 1px solid #77747b;
 
   clip-path: polygon(
-    0 0,
-    50% 24%,
-    100% 0,
-    78% 75%,
-    50% 100%,
-    22% 75%
+    0 0, 50% 24%, 100% 0,
+    78% 75%, 50% 100%, 22% 75%
   );
 }
 
-/* Tallos dorados */
+/* Tallos */
 
-.bat-flower::after {
+.bat-bouquet .bat-flower::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -430,64 +338,59 @@
   width: 3px;
   height: 125px;
   border-radius: 3px;
-
-  background: linear-gradient(
-    180deg,
-    #e4c86f,
-    #777044 55%,
-    #282719
-  );
+  background: linear-gradient(180deg, #ffe5a0, #a98a3e 55%, #282719);
+  box-shadow: 0 0 5px #f5c45130;
 }
 
-/* Posiciones de cada flor */
+/* Distribución de las siete flores */
 
-.bat-flower.f1 {
+.bat-bouquet .bat-flower.f1 {
   left: 1px;
   top: 84px;
   transform: rotate(-17deg) scale(.82);
 }
 
-.bat-flower.f2 {
+.bat-bouquet .bat-flower.f2 {
   left: 32px;
   top: 37px;
   transform: rotate(-10deg) scale(.92);
 }
 
-.bat-flower.f3 {
+.bat-bouquet .bat-flower.f3 {
   left: 70px;
   top: 8px;
   transform: rotate(-4deg);
 }
 
-.bat-flower.f4 {
+.bat-bouquet .bat-flower.f4 {
   left: calc(50% - 33px);
   top: 29px;
   z-index: 4;
   transform: scale(1.06);
 }
 
-.bat-flower.f5 {
+.bat-bouquet .bat-flower.f5 {
   right: 32px;
   top: 37px;
   transform: rotate(10deg) scale(.92);
 }
 
-.bat-flower.f6 {
+.bat-bouquet .bat-flower.f6 {
   right: 1px;
   top: 84px;
   transform: rotate(17deg) scale(.82);
 }
 
-.bat-flower.f7 {
+.bat-bouquet .bat-flower.f7 {
   left: calc(50% - 33px);
   top: 104px;
   z-index: 5;
   transform: scale(.78);
 }
 
-/* Envoltorio negro y dorado */
+/* Papel del ramo */
 
-.bat-bouquet-paper {
+.bat-bouquet .bat-bouquet-paper {
   position: relative;
   z-index: 6;
   width: 260px;
@@ -496,49 +399,37 @@
   margin: -65px auto 0;
   box-sizing: border-box;
 
-  background: linear-gradient(
-    90deg,
-    #050506 0%,
-    #29251a 20%,
-    #111116 40%,
-    #30291b 60%,
-    #111116 80%,
-    #050506 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #050506 0%,
+      #383020 20%,
+      #111116 40%,
+      #3a301d 60%,
+      #111116 80%,
+      #050506 100%
+    );
 
   clip-path: polygon(
-    0 0,
-    100% 0,
-    88% 48%,
-    67% 83%,
-    55% 100%,
-    45% 100%,
-    33% 83%,
-    12% 48%
+    0 0, 100% 0, 88% 48%, 67% 83%,
+    55% 100%, 45% 100%, 33% 83%, 12% 48%
   );
 
   filter: drop-shadow(0 8px 8px #0009);
 }
 
-.bat-paper-fold {
+.bat-bouquet .bat-paper-fold {
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     75deg,
-    transparent 17%,
-    #d9b45c45 19%,
-    transparent 29%,
-    transparent 43%,
-    #0008 45%,
-    transparent 52%,
-    transparent 70%,
-    #d9b45c30 72%,
-    transparent 82%
+    transparent 17%, #d9b45c45 19%, transparent 29%,
+    transparent 43%, #0008 45%, transparent 52%,
+    transparent 70%, #d9b45c30 72%, transparent 82%
   );
 }
 
-.bat-gold-ribbon {
+.bat-bouquet .bat-gold-ribbon {
   position: absolute;
   top: 76px;
   left: 50%;
@@ -546,33 +437,26 @@
   place-items: center;
   width: 48px;
   height: 32px;
-
   transform: translateX(-50%);
   border: 1px solid #f1d17b;
   border-radius: 6px;
-
-  background: linear-gradient(
-    145deg,
-    #272012,
-    #08090d
-  );
-
-  box-shadow: 0 0 10px #0008;
+  background: linear-gradient(145deg, #302719, #08090d);
+  box-shadow: 0 0 12px #f5c45125;
 }
 
-.bat-gold-ribbon span {
+.bat-bouquet .bat-gold-ribbon span {
   font-size: 21px;
 }
 
 /* Dedicatoria */
 
-.bouquet-dedication {
+.bat-bouquet .bouquet-dedication {
   position: relative;
   z-index: 7;
   margin: 14px 5px 0;
 }
 
-.bouquet-dedication p {
+.bat-bouquet .bouquet-dedication p {
   margin: 0 0 9px;
   color: #f5e4b7;
   font-family: Georgia, "Times New Roman", serif;
@@ -580,19 +464,56 @@
   line-height: 1.6;
 }
 
-.bouquet-dedication strong {
+.bat-bouquet .bouquet-dedication strong {
   display: block;
-  color: #f5c451;
+  color: var(--bat-gold);
   font-size: 13px;
+  text-shadow: 0 0 12px #f5c45130;
 }
 
-.bouquet-dedication small {
+.bat-bouquet .bouquet-dedication small {
   display: block;
   margin-top: 12px;
-  color: #bba36b;
+  color: #cbb477;
   font-size: 9px;
   letter-spacing: 2px;
 }
+
+@keyframes batSparkle {
+  from {
+    opacity: .4;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 360px) {
+  .bat-bouquet {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .bat-bouquet .bat-flower-heads {
+    transform: scale(.92);
+    transform-origin: top center;
+    margin-bottom: -19px;
+  }
+
+  .bat-bouquet .bouquet-dedication p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bat-bouquet .bouquet-sparkles i {
+    animation: none;
+  }
+  }
+    
+
 
 /* Animaciones al entrar en la etapa 6 */
 
