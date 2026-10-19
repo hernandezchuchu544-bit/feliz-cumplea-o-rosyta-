@@ -503,6 +503,17 @@
 }
 
 /* Papel principal en forma de cono */
+
+
+.bat-bouquet .bat-bouquet-paper {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 155px;
+  margin-top: -5px;
+  pointer-events: none;
+}
+
 .bat-bouquet .bat-paper-fold {
   position: absolute;
   left: 50%;
@@ -510,27 +521,28 @@
   transform: translateX(-50%);
   width: 245px;
   max-width: 90%;
-  height: 165px;
+  height: 155px;
   background: linear-gradient(
-    115deg,
-    #171923 0%,
-    #343442 28%,
+    110deg,
+    #101117 0%,
+    #292a35 30%,
     #171923 52%,
-    #45404b 76%,
-    #171923 100%
+    #34313b 75%,
+    #101117 100%
   );
   clip-path: polygon(
     0 0,
     100% 0,
-    88% 48%,
-    58% 83%,
+    84% 48%,
+    60% 82%,
     50% 100%,
-    42% 83%,
-    12% 48%
+    40% 82%,
+    16% 48%
   );
   border: 1px solid #c5a65b;
   box-sizing: border-box;
 }
+    
 
 /* Pliegue dorado del envoltorio */
 .bat-bouquet .bat-paper-fold::before {
