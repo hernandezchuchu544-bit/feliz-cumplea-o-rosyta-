@@ -89,28 +89,33 @@
     .stage-number { margin-top: 20px; color: #9f8a5b; font-size: 10px; letter-spacing: 3px; }
     [hidden] { display: none !important; }
     
+
 /* COLLAGE ROMÁNTICO DE GOTHAM */
 .gallery {
   position: relative;
   isolation: isolate;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-auto-rows: 48px;
+  grid-auto-rows: 32px;
+  grid-auto-flow: dense;
   gap: 9px;
   margin: 28px 0;
-  padding: 20px 12px;
+  padding: 22px 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 213, 64, .5);
+  border: 1px solid rgba(255, 213, 64, .6);
   border-radius: 18px;
+
   background:
-    radial-gradient(ellipse at center, rgba(255, 208, 45, .13), transparent 48%),
-    linear-gradient(145deg, #171719, #030304 55%, #18130a);
+    radial-gradient(ellipse at 50% 45%, #ffd42b20, transparent 52%),
+    radial-gradient(ellipse at 50% 100%, #a9791730, transparent 55%),
+    linear-gradient(145deg, #1a1a1e, #030304 52%, #17120a);
+
   box-shadow:
-    inset 0 0 28px rgba(255, 196, 32, .09),
-    0 0 22px rgba(255, 202, 40, .13);
+    inset 0 0 32px #ffd43b12,
+    0 0 24px #ffd43b20;
 }
 
-/* Símbolo de Batman detrás del collage */
+/* Símbolo de Batman al fondo */
 .gallery::before {
   content: "🦇";
   position: absolute;
@@ -118,80 +123,171 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(130px, 45vw, 240px);
-  opacity: .19;
+  font-size: clamp(150px, 48vw, 260px);
+  opacity: .2;
   filter: grayscale(1) sepia(1) brightness(1.5);
-  text-shadow: 0 0 30px #ffd43b, 0 0 65px #dca900;
+  text-shadow:
+    0 0 24px #ffd43b,
+    0 0 55px #dca900;
   pointer-events: none;
 }
 
-/* Destellos del fondo */
+/* Destellos dorados */
 .gallery::after {
-  content: "";
+  content: "✦     ·       ✧       ·     ✦";
   position: absolute;
   z-index: -1;
   inset: 0;
-  background:
-    radial-gradient(circle at 15% 20%, #ffe47b55 0 1px, transparent 3px),
-    radial-gradient(circle at 85% 32%, #ffe47b66 0 1px, transparent 3px),
-    radial-gradient(circle at 30% 80%, #ffe47b44 0 1px, transparent 3px),
-    radial-gradient(circle at 75% 75%, #ffe47b55 0 1px, transparent 3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffe47b;
+  font-size: 25px;
+  letter-spacing: 12px;
+  opacity: .35;
   pointer-events: none;
 }
 
-/* Fotografías */
+/* Estilo general de las fotos */
 .gallery img {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
   min-width: 0;
+  min-height: 0;
   object-fit: cover;
   border: 2px solid #d9ad35;
-  border-radius: 5px;
+  border-radius: 6px;
   background: #101012;
   cursor: pointer;
-  box-shadow: 0 3px 9px #000, 0 0 9px #e5b52b30;
-  transition: transform .25s, box-shadow .25s, border-color .25s;
+
+  box-shadow:
+    0 4px 10px #000,
+    0 0 8px #e5b52b35;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
 }
 
-/* Distribución irregular del collage */
-.gallery img:nth-child(1)  { grid-column: 1 / 4; grid-row: span 3; transform: rotate(-3deg); }
-.gallery img:nth-child(2)  { grid-column: 4 / 7; grid-row: span 2; transform: rotate(2deg); }
-.gallery img:nth-child(3)  { grid-column: 4 / 6; grid-row: span 3; transform: rotate(-2deg); }
-.gallery img:nth-child(4)  { grid-column: 1 / 3; grid-row: span 2; transform: rotate(2deg); }
-.gallery img:nth-child(5)  { grid-column: 3 / 5; grid-row: span 2; transform: rotate(-1deg); }
-.gallery img:nth-child(6)  { grid-column: 5 / 7; grid-row: span 2; transform: rotate(3deg); }
-.gallery img:nth-child(7)  { grid-column: 1 / 4; grid-row: span 3; transform: rotate(2deg); }
-.gallery img:nth-child(8)  { grid-column: 4 / 7; grid-row: span 3; transform: rotate(-2deg); }
-.gallery img:nth-child(9)  { grid-column: 1 / 3; grid-row: span 2; transform: rotate(-3deg); }
-.gallery img:nth-child(10) { grid-column: 3 / 5; grid-row: span 2; transform: rotate(2deg); }
-.gallery img:nth-child(11) { grid-column: 5 / 7; grid-row: span 2; transform: rotate(-2deg); }
-.gallery img:nth-child(12) { grid-column: 1 / 4; grid-row: span 3; transform: rotate(-2deg); }
-.gallery img:nth-child(13) { grid-column: 4 / 7; grid-row: span 3; transform: rotate(2deg); }
-.gallery img:nth-child(14) { grid-column: 1 / 4; grid-row: span 2; transform: rotate(2deg); }
-.gallery img:nth-child(15) { grid-column: 4 / 7; grid-row: span 2; transform: rotate(-2deg); }
+/* Distribución variada para las primeras 24 fotos */
+.gallery img:nth-child(12n + 1) {
+  grid-column: span 3;
+  grid-row: span 4;
+  transform: rotate(-2deg);
+}
 
+.gallery img:nth-child(12n + 2) {
+  grid-column: span 3;
+  grid-row: span 3;
+  transform: rotate(2deg);
+}
+
+.gallery img:nth-child(12n + 3) {
+  grid-column: span 2;
+  grid-row: span 4;
+  transform: rotate(-2deg);
+}
+
+.gallery img:nth-child(12n + 4) {
+  grid-column: span 2;
+  grid-row: span 3;
+  transform: rotate(2deg);
+}
+
+.gallery img:nth-child(12n + 5) {
+  grid-column: span 2;
+  grid-row: span 3;
+  transform: rotate(-1deg);
+}
+
+.gallery img:nth-child(12n + 6) {
+  grid-column: span 2;
+  grid-row: span 4;
+  transform: rotate(2deg);
+}
+
+.gallery img:nth-child(12n + 7) {
+  grid-column: span 3;
+  grid-row: span 3;
+  transform: rotate(2deg);
+}
+
+.gallery img:nth-child(12n + 8) {
+  grid-column: span 3;
+  grid-row: span 4;
+  transform: rotate(-2deg);
+}
+
+.gallery img:nth-child(12n + 9) {
+  grid-column: span 2;
+  grid-row: span 3;
+  transform: rotate(-2deg);
+}
+
+.gallery img:nth-child(12n + 10) {
+  grid-column: span 2;
+  grid-row: span 4;
+  transform: rotate(2deg);
+}
+
+.gallery img:nth-child(12n + 11) {
+  grid-column: span 2;
+  grid-row: span 3;
+  transform: rotate(-2deg);
+}
+
+.gallery img:nth-child(12n + 12) {
+  grid-column: span 6;
+  grid-row: span 4;
+  transform: rotate(0deg);
+}
+
+/* Efecto al tocar una fotografía */
 .gallery img:active {
   transform: scale(.96);
 }
 
+/* Brillo al pasar el cursor */
 @media (hover: hover) {
   .gallery img:hover {
     z-index: 2;
     transform: scale(1.04) rotate(0deg);
     border-color: #fff0a1;
-    box-shadow: 0 0 18px #ffd43b99, 0 5px 15px #000;
+    box-shadow:
+      0 0 18px #ffd43b99,
+      0 5px 15px #000;
+  }
+}
+
+/* Adaptación para celulares */
+@media (max-width: 480px) {
+  .gallery {
+    grid-auto-rows: 29px;
+    gap: 7px;
+    padding: 16px 9px;
+  }
+
+  .gallery img {
+    border-width: 1.5px;
+    border-radius: 5px;
+  }
+
+  .gallery::before {
+    font-size: 44vw;
   }
 }
 
 @media (max-width: 360px) {
   .gallery {
+    grid-auto-rows: 25px;
     gap: 6px;
-    padding: 14px 8px;
-    grid-auto-rows: 40px;
+    padding: 13px 7px;
   }
-}
+    }
+    
     
     .record {
       width: 150px; height: 150px; margin: 24px auto; border: 4px solid #b68b35;
